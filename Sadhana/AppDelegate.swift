@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().removeObjectForKey(standartMantraCount)
         
         if ((NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)) == nil) {
-            NSUserDefaults.standardUserDefaults().setObject(5, forKey: standartMantraCount)
+            NSUserDefaults.standardUserDefaults().setObject(108, forKey: standartMantraCount)
         }
         return true
     }
