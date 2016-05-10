@@ -101,8 +101,8 @@
 		4E786B661CE09FC500ABFF4E = {
 			isa = PBXGroup;
 			children = (
-				4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */,
 				4E786B711CE09FC500ABFF4E /* Sadhana */,
+				4EC0428D1CE2314200FAB2D5 /* Frameworks */,
 				4E786B881CE09FC500ABFF4E /* SadhanaTests */,
 				4E786B931CE09FC600ABFF4E /* SadhanaUITests */,
 				4E786B701CE09FC500ABFF4E /* Products */,
@@ -151,6 +151,14 @@
 				4E786B961CE09FC600ABFF4E /* Info.plist */,
 			);
 			path = SadhanaUITests;
+			sourceTree = "<group>";
+		};
+		4EC0428D1CE2314200FAB2D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +541,7 @@
 				4E786B9B1CE09FC600ABFF4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E786B9C1CE09FC600ABFF4E /* Build configuration list for PBXNativeTarget "SadhanaTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +550,7 @@
 				4E786B9E1CE09FC600ABFF4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E786B9F1CE09FC600ABFF4E /* Build configuration list for PBXNativeTarget "SadhanaUITests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +559,7 @@
 				4E786BA11CE09FC600ABFF4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

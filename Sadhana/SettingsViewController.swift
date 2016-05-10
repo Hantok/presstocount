@@ -9,6 +9,8 @@
 import UIKit
 
 let standartMantraCount = "standartMantraCount"
+let currentMantraCount = "currentMantraCount"
+let currentRowsCount = "currentRowsCount"
 
 class SettingsViewController: UIViewController {
 

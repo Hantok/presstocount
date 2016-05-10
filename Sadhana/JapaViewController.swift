@@ -25,7 +25,13 @@ class JapaViewController: UIViewController {
         volumeView.hidden = false;
         self.view.addSubview(volumeView);
         
+        let curMantraCount = NSUserDefaults.standardUserDefaults().objectForKey(currentMantraCount)?.integerValue
+        progressBar.setValue(curMantraCount != nil ? CGFloat(curMantraCount!) : 0, animateWithDuration: 0.2)
         progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!.integerValue)
+        
+        if (NSUserDefaults.standardUserDefaults().objectForKey(currentRowsCount) != nil) {
+            rowsCount.text = String(NSUserDefaults.standardUserDefaults().objectForKey(currentRowsCount)!)
+        }
         
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(applicationBecameActive),
@@ -70,6 +76,8 @@ class JapaViewController: UIViewController {
     }
     
     func applicationBecameInactive() {
+        NSUserDefaults.standardUserDefaults().setObject(progressBar.value, forKey: currentMantraCount)
+        NSUserDefaults.standardUserDefaults().setObject(rowsCount.text, forKey: currentRowsCount)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
     }
     
