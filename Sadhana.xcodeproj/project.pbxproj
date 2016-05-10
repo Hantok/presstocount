@@ -17,6 +17,8 @@
 		4E786B951CE09FC600ABFF4E /* SadhanaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E786B941CE09FC600ABFF4E /* SadhanaUITests.swift */; };
 		4E786BA31CE1E16E00ABFF4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E786BA21CE1E16E00ABFF4E /* Images.xcassets */; };
 		4E786BA51CE1F7A300ABFF4E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E786BA41CE1F7A300ABFF4E /* SettingsViewController.swift */; };
+		4E786BA71CE21D8F00ABFF4E /* MBCircularProgressBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; };
+		4E786BA91CE2212600ABFF4E /* MBCircularProgressBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4E786BAA1CE2212600ABFF4E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E786BA91CE2212600ABFF4E /* MBCircularProgressBar.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4E786B6F1CE09FC500ABFF4E /* Sadhana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sadhana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E786B721CE09FC500ABFF4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +69,7 @@
 		4E786B961CE09FC600ABFF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E786BA21CE1E16E00ABFF4E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E786BA41CE1F7A300ABFF4E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBCircularProgressBar.framework; path = Carthage/Build/iOS/MBCircularProgressBar.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E786BA71CE21D8F00ABFF4E /* MBCircularProgressBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 		4E786B661CE09FC500ABFF4E = {
 			isa = PBXGroup;
 			children = (
+				4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */,
 				4E786B711CE09FC500ABFF4E /* Sadhana */,
 				4E786B881CE09FC500ABFF4E /* SadhanaTests */,
 				4E786B931CE09FC600ABFF4E /* SadhanaUITests */,
@@ -144,6 +163,7 @@
 				4E786B6B1CE09FC500ABFF4E /* Sources */,
 				4E786B6C1CE09FC500ABFF4E /* Frameworks */,
 				4E786B6D1CE09FC500ABFF4E /* Resources */,
+				4E786BAA1CE2212600ABFF4E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,6 +436,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Sadhana/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -431,6 +455,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Sadhana/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

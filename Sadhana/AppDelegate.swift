@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(standartMantraCount)
+        
         if ((NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)) == nil) {
-            NSUserDefaults.standardUserDefaults().setObject(108, forKey: standartMantraCount)
+            NSUserDefaults.standardUserDefaults().setObject(5, forKey: standartMantraCount)
         }
         return true
     }

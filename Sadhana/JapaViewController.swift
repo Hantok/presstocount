@@ -9,11 +9,12 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
+import MBCircularProgressBar
 
 class JapaViewController: UIViewController {
 
-    @IBOutlet weak var mantraCount: UILabel!
     @IBOutlet weak var rowsCount: UILabel!
+    @IBOutlet weak var progressBar: MBCircularProgressBarView!
     var volumeView: MPVolumeView!
     
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class JapaViewController: UIViewController {
         volumeView.showsRouteButton = false;
         volumeView.hidden = false;
         self.view.addSubview(volumeView);
+        
+        progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!.integerValue)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(applicationBecameActive),
@@ -39,13 +42,16 @@ class JapaViewController: UIViewController {
         if let userInfo = notification.userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
-                    if Int(mantraCount.text!)! == NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)?.integerValue {
-                        mantraCount.text = "0"
+                    if Int(progressBar.value) == NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)?.integerValue {
                         rowsCount.text = String(Int(rowsCount.text!)! + 1)
+                        
+                        progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
+                        
                         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                         return
                     }
-                    mantraCount.text = String(Int(mantraCount.text!)! + 1)
+                    let value = Int(progressBar.value) + 1
+                    progressBar.setValue(CGFloat(value), animateWithDuration: 0.25)
                 }
             }
         }
@@ -74,7 +80,7 @@ class JapaViewController: UIViewController {
 
     @IBAction func reset(sender: AnyObject) {
         //TODO: add UIAlertController and allow user to choose what to reset
-        mantraCount.text = "0";
+        progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
         rowsCount.text = "0";
     }
 
