@@ -16,6 +16,7 @@ class JapaViewController: UIViewController {
     @IBOutlet weak var rowsCount: UILabel!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     var volumeView: MPVolumeView!
+    var newRowAdded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,6 @@ class JapaViewController: UIViewController {
         
         let curMantraCount = NSUserDefaults.standardUserDefaults().objectForKey(currentMantraCount)?.integerValue
         progressBar.setValue(curMantraCount != nil ? CGFloat(curMantraCount!) : 0, animateWithDuration: 0.2)
-        progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!.integerValue)
         
         if (NSUserDefaults.standardUserDefaults().objectForKey(currentRowsCount) != nil) {
             rowsCount.text = String(NSUserDefaults.standardUserDefaults().objectForKey(currentRowsCount)!)
@@ -42,22 +42,18 @@ class JapaViewController: UIViewController {
                                                          name: UIApplicationWillResignActiveNotification,
                                                          object: nil)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!.integerValue)
+    }
 
     func volumeChanged(notification: NSNotification) {
         
         if let userInfo = notification.userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
-                    if Int(progressBar.value) == NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)?.integerValue {
-                        rowsCount.text = String(Int(rowsCount.text!)! + 1)
-                        
-                        progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
-                        
-                        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                        return
-                    }
-                    let value = Int(progressBar.value) + 1
-                    progressBar.setValue(CGFloat(value), animateWithDuration: 0.25)
+                    mantraPlus();
                 }
             }
         }
@@ -89,10 +85,29 @@ class JapaViewController: UIViewController {
     @IBAction func reset(sender: AnyObject) {
         //TODO: add UIAlertController and allow user to choose what to reset
         progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
-        rowsCount.text = "0";
+        rowsCount.text = "0"
+    }
+    @IBAction func tapOnScreen(sender: AnyObject) {
+        mantraPlus();
     }
 
     @IBAction func changeSettings(sender: AnyObject) {
+    }
+    
+    func mantraPlus() {
+        if(newRowAdded) {
+            progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
+            newRowAdded = false
+        }
+        
+        let value = Int(progressBar.value) + 1
+        progressBar.setValue(CGFloat(value), animateWithDuration: 0.25)
+        
+        if Int(value) == NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)?.integerValue {
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            rowsCount.text = String(Int(rowsCount.text!)! + 1)
+            newRowAdded = true
+        }
     }
 }
 

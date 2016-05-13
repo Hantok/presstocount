@@ -12,12 +12,15 @@ let standartMantraCount = "standartMantraCount"
 let currentMantraCount = "currentMantraCount"
 let currentRowsCount = "currentRowsCount"
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +31,34 @@ class SettingsViewController: UIViewController {
     @IBAction func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    //MARK: TableView delegate/datasource
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
+            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!))!
+            cell.stepperLabel?.text = "Beads count: \(Int(cell.stepper.value))"
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
+            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!))!
+            cell.stepperLabel?.text = "Beads count: \(Int(cell.stepper.value))"
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            return cell
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
