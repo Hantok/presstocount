@@ -16,10 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(standartMantraCount)
         
-        if ((NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)) == nil) {
-            NSUserDefaults.standardUserDefaults().setObject(108, forKey: standartMantraCount)
+        //For tests purposes
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(userMantraCount)
+        
+        if ((NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)) == nil) {
+            NSUserDefaults.standardUserDefaults().setObject(108, forKey: userMantraCount)
+            //NSUserDefaults.standardUserDefaults().setObject(108, forKey: currentRowsCount)
+            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.both.rawValue, forKey: userInputType)
         }
         return true
     }

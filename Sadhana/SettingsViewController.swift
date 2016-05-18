@@ -8,9 +8,10 @@
 
 import UIKit
 
-let standartMantraCount = "standartMantraCount"
+let userMantraCount = "userMantraCount"
 let currentMantraCount = "currentMantraCount"
 let currentRowsCount = "currentRowsCount"
+let userInputType = "userInputType"
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -46,13 +47,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
-            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!))!
+            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)!))!
             cell.stepperLabel?.text = "Beads count: \(Int(cell.stepper.value))"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
+        case 1:
+            let cell = tableView.dequeueReusableCellWithIdentifier("InputType", forIndexPath: indexPath) as! MantraCountTableViewCell
+            return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
-            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!))!
+            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)!))!
             cell.stepperLabel?.text = "Beads count: \(Int(cell.stepper.value))"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell

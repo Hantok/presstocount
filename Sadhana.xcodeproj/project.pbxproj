@@ -20,6 +20,7 @@
 		4E786BA71CE21D8F00ABFF4E /* MBCircularProgressBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; };
 		4E786BA91CE2212600ABFF4E /* MBCircularProgressBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EC0428F1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC0428E1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift */; };
+		4EC042921CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC042911CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		4E786BA41CE1F7A300ABFF4E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBCircularProgressBar.framework; path = Carthage/Build/iOS/MBCircularProgressBar.framework; sourceTree = "<group>"; };
 		4EC0428E1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MantraCountTableViewCell.swift; path = Cells/MantraCountTableViewCell.swift; sourceTree = "<group>"; };
+		4EC042911CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTypeTableViewCell.swift; path = Cells/InputTypeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				4EC0428E1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift */,
+				4EC042911CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				4EC0428F1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift in Sources */,
 				4E786B731CE09FC500ABFF4E /* AppDelegate.swift in Sources */,
 				4E786B751CE09FC500ABFF4E /* JapaViewController.swift in Sources */,
+				4EC042921CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift in Sources */,
 				4E786BA51CE1F7A300ABFF4E /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,7 +467,7 @@
 				INFOPLIST_FILE = Sadhana/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Sadhana;
+				PRODUCT_BUNDLE_IDENTIFIER = rslysh.SadhanaTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -482,7 +486,7 @@
 				INFOPLIST_FILE = Sadhana/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Sadhana;
+				PRODUCT_BUNDLE_IDENTIFIER = rslysh.SadhanaTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

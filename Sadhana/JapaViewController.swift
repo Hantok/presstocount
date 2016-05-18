@@ -13,6 +13,7 @@ import MBCircularProgressBar
 
 class JapaViewController: UIViewController {
 
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var rowsCount: UILabel!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     var volumeView: MPVolumeView!
@@ -45,7 +46,21 @@ class JapaViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)!.integerValue)
+        progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)!.integerValue)
+//
+//        
+//        //TODO: need to finish
+//        let inputType = (NSUserDefaults.standardUserDefaults().objectForKey(userInputType) as! NSString).integerValue
+//        switch inputType {
+//        case InputTypeEnum.volume.rawValue:
+//            tapRecognizer.enabled = false
+//        case InputTypeEnum.tap.rawValue:
+//            tapRecognizer.enabled = true
+//        case InputTypeEnum.both.rawValue:
+//            tapRecognizer.enabled = true
+//        default:
+//            tapRecognizer.enabled = true
+//        }
     }
 
     func volumeChanged(notification: NSNotification) {
@@ -103,7 +118,7 @@ class JapaViewController: UIViewController {
         let value = Int(progressBar.value) + 1
         progressBar.setValue(CGFloat(value), animateWithDuration: 0.25)
         
-        if Int(value) == NSUserDefaults.standardUserDefaults().objectForKey(standartMantraCount)?.integerValue {
+        if Int(value) == NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)?.integerValue {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             rowsCount.text = String(Int(rowsCount.text!)! + 1)
             newRowAdded = true

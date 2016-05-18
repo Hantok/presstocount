@@ -26,7 +26,7 @@ class MantraCountTableViewCell: UITableViewCell {
     
     @IBAction func stepperChanged(stepper: UIStepper) {
         self.stepperLabel?.text = "Beads count: \(Int(stepper.value))"
-        NSUserDefaults.standardUserDefaults().setObject(Int(stepper.value), forKey: standartMantraCount)
+        NSUserDefaults.standardUserDefaults().setObject(Int(stepper.value), forKey: userMantraCount)
     }
 
 }
