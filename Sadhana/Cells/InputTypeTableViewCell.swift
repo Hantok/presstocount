@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum InputTypeEnum: Int {
-    case volume = 0
-    case tap
-    case both
-}
-
 class InputTypeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -30,15 +24,15 @@ class InputTypeTableViewCell: UITableViewCell {
     }
 
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case InputTypeEnum.volume.rawValue:
-            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.volume.rawValue, forKey: userInputType)
-        case InputTypeEnum.tap.rawValue:
-            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.tap.rawValue, forKey: userInputType)
-        case InputTypeEnum.both.rawValue:
-            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.both.rawValue, forKey: userInputType)
-        default:
-            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.both.rawValue, forKey: userInputType)
-        }
+//        switch sender.selectedSegmentIndex {
+//        case InputTypeEnum.volume.rawValue:
+//            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.volume.rawValue, forKey: userInputType)
+//        case InputTypeEnum.tap.rawValue:
+//            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.tap.rawValue, forKey: userInputType)
+//        case InputTypeEnum.both.rawValue:
+//            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.both.rawValue, forKey: userInputType)
+//        default:
+//            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.both.rawValue, forKey: userInputType)
+//        }
     }
 }

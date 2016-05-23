@@ -18,12 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //For tests purposes
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(userMantraCount)
+        //NSUserDefaults.standardUserDefaults().removeObjectForKey(CounterKey)
         
-        if ((NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)) == nil) {
-            NSUserDefaults.standardUserDefaults().setObject(108, forKey: userMantraCount)
-            //NSUserDefaults.standardUserDefaults().setObject(108, forKey: currentRowsCount)
-            NSUserDefaults.standardUserDefaults().setObject(InputTypeEnum.both.rawValue, forKey: userInputType)
+        if ((NSUserDefaults.standardUserDefaults().objectForKey(CounterKey)) == nil) {
+            let data = NSKeyedArchiver.archivedDataWithRootObject(Counter())
+            NSUserDefaults.standardUserDefaults().setObject(data, forKey: CounterKey)
         }
         return true
     }

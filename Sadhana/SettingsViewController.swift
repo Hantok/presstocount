@@ -8,11 +8,6 @@
 
 import UIKit
 
-let userMantraCount = "userMantraCount"
-let currentMantraCount = "currentMantraCount"
-let currentRowsCount = "currentRowsCount"
-let userInputType = "userInputType"
-
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +25,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func back(sender: AnyObject) {
+        let counter = Counter.getSavedCounter()
+        
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! MantraCountTableViewCell
+        if counter.currentClickCount > Int(cell.stepper.value) {
+            counter.save(Int(cell.stepper.value)-1, maximumClickCount: Int(cell.stepper.value))
+        } else {
+            counter.save(maximumClickCount: Int(cell.stepper.value))
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -44,11 +48,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let counter = Counter.getSavedCounter()
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
-            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)!))!
-            cell.stepperLabel?.text = "Beads count: \(Int(cell.stepper.value))"
+            cell.stepper.value = Double(counter.maxClickCount)
+            cell.stepperLabel?.text = "Count of clicks: \(counter.maxClickCount)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         case 1:
@@ -56,8 +61,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
-            cell.stepper.value = Double(String(NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)!))!
-            cell.stepperLabel?.text = "Beads count: \(Int(cell.stepper.value))"
+            cell.stepper.value = Double(counter.maxClickCount)
+            cell.stepperLabel?.text = "Count of clicks: \(counter.maxClickCount)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }

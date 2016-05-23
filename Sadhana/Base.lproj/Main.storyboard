@@ -160,7 +160,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="stepper" destination="OVG-Tr-NvU" id="fZQ-Op-CG2"/>
+                                            <outlet property="stepper" destination="OVG-Tr-NvU" id="Vky-WQ-VSl"/>
                                             <outlet property="stepperLabel" destination="mu4-aR-dMj" id="aWy-RV-dVY"/>
                                         </connections>
                                     </tableViewCell>

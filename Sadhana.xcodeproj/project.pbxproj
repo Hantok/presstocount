@@ -19,6 +19,7 @@
 		4E786BA51CE1F7A300ABFF4E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E786BA41CE1F7A300ABFF4E /* SettingsViewController.swift */; };
 		4E786BA71CE21D8F00ABFF4E /* MBCircularProgressBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; };
 		4E786BA91CE2212600ABFF4E /* MBCircularProgressBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EB84CBC1CEDEB6100D181BB /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB84CBB1CEDEB6100D181BB /* Counter.swift */; };
 		4EC0428F1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC0428E1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift */; };
 		4EC042921CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC042911CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		4E786BA21CE1E16E00ABFF4E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E786BA41CE1F7A300ABFF4E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBCircularProgressBar.framework; path = Carthage/Build/iOS/MBCircularProgressBar.framework; sourceTree = "<group>"; };
+		4EB84CBB1CEDEB6100D181BB /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Counter.swift; path = Model/Counter.swift; sourceTree = "<group>"; };
 		4EC0428E1CE358EB00FAB2D5 /* MantraCountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MantraCountTableViewCell.swift; path = Cells/MantraCountTableViewCell.swift; sourceTree = "<group>"; };
 		4EC042911CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputTypeTableViewCell.swift; path = Cells/InputTypeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				4E786B741CE09FC500ABFF4E /* JapaViewController.swift */,
 				4E786B761CE09FC500ABFF4E /* SecondViewController.swift */,
 				4E786BA41CE1F7A300ABFF4E /* SettingsViewController.swift */,
+				4EB84CBD1CEDEB6600D181BB /* Model */,
 				4EC042901CE358F200FAB2D5 /* Cells */,
 				4E786B781CE09FC500ABFF4E /* Main.storyboard */,
 				4E786B7B1CE09FC500ABFF4E /* Assets.xcassets */,
@@ -156,6 +159,14 @@
 				4E786B961CE09FC600ABFF4E /* Info.plist */,
 			);
 			path = SadhanaUITests;
+			sourceTree = "<group>";
+		};
+		4EB84CBD1CEDEB6600D181BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EB84CBB1CEDEB6100D181BB /* Counter.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		4EC0428D1CE2314200FAB2D5 /* Frameworks */ = {
@@ -315,6 +326,7 @@
 				4E786B751CE09FC500ABFF4E /* JapaViewController.swift in Sources */,
 				4EC042921CE5CFCD00FAB2D5 /* InputTypeTableViewCell.swift in Sources */,
 				4E786BA51CE1F7A300ABFF4E /* SettingsViewController.swift in Sources */,
+				4EB84CBC1CEDEB6100D181BB /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +479,7 @@
 				INFOPLIST_FILE = Sadhana/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rslysh.SadhanaTest;
+				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Sadhana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -486,7 +498,7 @@
 				INFOPLIST_FILE = Sadhana/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rslysh.SadhanaTest;
+				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Sadhana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

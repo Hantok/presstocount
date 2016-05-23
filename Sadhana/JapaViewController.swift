@@ -18,21 +18,15 @@ class JapaViewController: UIViewController {
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     var volumeView: MPVolumeView!
     var newRowAdded: Bool = false
+    var counter = Counter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         volumeView = MPVolumeView(frame: CGRectMake(-CGFloat.max, 0.0, 0.0, 0.0))
-        volumeView.showsRouteButton = false;
-        volumeView.hidden = false;
-        self.view.addSubview(volumeView);
-        
-        let curMantraCount = NSUserDefaults.standardUserDefaults().objectForKey(currentMantraCount)?.integerValue
-        progressBar.setValue(curMantraCount != nil ? CGFloat(curMantraCount!) : 0, animateWithDuration: 0.2)
-        
-        if (NSUserDefaults.standardUserDefaults().objectForKey(currentRowsCount) != nil) {
-            rowsCount.text = String(NSUserDefaults.standardUserDefaults().objectForKey(currentRowsCount)!)
-        }
+        volumeView.showsRouteButton = false
+        volumeView.hidden = false
+        view.addSubview(volumeView)
         
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(applicationBecameActive),
@@ -46,7 +40,10 @@ class JapaViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        progressBar.maxValue = CGFloat(NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)!.integerValue)
+        counter = Counter.getSavedCounter()
+        progressBar.maxValue = CGFloat(counter.maxClickCount)
+        progressBar.setValue(CGFloat(counter.currentClickCount), animateWithDuration: 0.2)
+        rowsCount.text = "\(counter.currentRowsCount)"
 //
 //        
 //        //TODO: need to finish
@@ -87,8 +84,7 @@ class JapaViewController: UIViewController {
     }
     
     func applicationBecameInactive() {
-        NSUserDefaults.standardUserDefaults().setObject(progressBar.value, forKey: currentMantraCount)
-        NSUserDefaults.standardUserDefaults().setObject(rowsCount.text, forKey: currentRowsCount)
+        counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
     }
     
@@ -107,6 +103,7 @@ class JapaViewController: UIViewController {
     }
 
     @IBAction func changeSettings(sender: AnyObject) {
+        counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
     }
     
     func mantraPlus() {
@@ -118,7 +115,7 @@ class JapaViewController: UIViewController {
         let value = Int(progressBar.value) + 1
         progressBar.setValue(CGFloat(value), animateWithDuration: 0.25)
         
-        if Int(value) == NSUserDefaults.standardUserDefaults().objectForKey(userMantraCount)?.integerValue {
+        if counter.maxClickCount == Int(value) {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             rowsCount.text = String(Int(rowsCount.text!)! + 1)
             newRowAdded = true
