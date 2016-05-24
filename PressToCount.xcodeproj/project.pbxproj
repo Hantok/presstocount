@@ -197,6 +197,7 @@
 				4E786B6C1CE09FC500ABFF4E /* Frameworks */,
 				4E786B6D1CE09FC500ABFF4E /* Resources */,
 				4E786BAA1CE2212600ABFF4E /* Embed Frameworks */,
+				4E70158F1CF49D4C0088327F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -314,6 +315,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E70158F1CF49D4C0088327F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/MBCircularProgressBar.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E786B6B1CE09FC500ABFF4E /* Sources */ = {
