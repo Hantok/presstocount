@@ -72,12 +72,8 @@ class Counter: NSObject, NSCoding {
     //MARK: class methods
     
     class func getSavedCounter() -> Counter {
-        if NSUserDefaults.standardUserDefaults().objectForKey(CounterKey) != nil, let data = NSUserDefaults.standardUserDefaults().objectForKey(CounterKey) as? NSData {
-            if let counter = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Counter {
-                return counter
-            } else {
-                return Counter()
-            }
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey(CounterKey) {
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data as! NSData) as! Counter
         } else {
             return Counter()
         }
