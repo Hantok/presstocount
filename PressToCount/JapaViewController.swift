@@ -19,6 +19,8 @@ class JapaViewController: UIViewController {
     var volumeView: MPVolumeView!
     var newRowAdded: Bool = false
     var counter = Counter()
+    var volumeSlider: UISlider?
+    var volume: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,8 @@ class JapaViewController: UIViewController {
                                                          selector: #selector(applicationBecameInactive),
                                                          name: UIApplicationWillResignActiveNotification,
                                                          object: nil)
+        volume = AVAudioSession.sharedInstance().outputVolume
+        volumeSlider = (volumeView.subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -61,7 +65,6 @@ class JapaViewController: UIViewController {
     }
 
     func volumeChanged(notification: NSNotification) {
-        
         if let userInfo = notification.userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
@@ -76,6 +79,8 @@ class JapaViewController: UIViewController {
                                                          selector: #selector(volumeChanged(_:)),
                                                          name: "AVSystemController_SystemVolumeDidChangeNotification",
                                                          object: nil)
+        //reset volume
+        volume = AVAudioSession.sharedInstance().outputVolume
         //need for dissapear Volume HUD
         do {
             //listen to hardware volume buttons
@@ -86,6 +91,9 @@ class JapaViewController: UIViewController {
     func applicationBecameInactive() {
         counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
+        if let vSlider = volumeSlider {
+            vSlider.setValue(volume, animated: false)
+        }
     }
     
     override func didReceiveMemoryWarning() {
