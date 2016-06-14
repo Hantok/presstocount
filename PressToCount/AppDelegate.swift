@@ -17,13 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        //For tests purposes
-        //NSUserDefaults.standardUserDefaults().removeObjectForKey(CounterKey)
-        
-        if ((NSUserDefaults.standardUserDefaults().objectForKey(CounterKey)) == nil) {
-            let data = NSKeyedArchiver.archivedDataWithRootObject(Counter())
-            NSUserDefaults.standardUserDefaults().setObject(data, forKey: CounterKey)
-        }
         return true
     }
 
