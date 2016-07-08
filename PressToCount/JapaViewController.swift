@@ -102,9 +102,24 @@ class JapaViewController: UIViewController {
     }
 
     @IBAction func reset(sender: AnyObject) {
-        //TODO: add UIAlertController and allow user to choose what to reset
-        progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
-        rowsCount.text = "0"
+        let resetAllAction = UIAlertAction(title: "Reset all", style: .Default) { (_) in
+            self.progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
+            self.rowsCount.text = "0"
+        }
+        let resetCountAction = UIAlertAction(title: "Reset counter", style: .Default) { (_) in
+            self.progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
+        }
+        let resetRowsAction = UIAlertAction(title: "Reset rows", style: .Default) { (_) in
+            self.rowsCount.text = "0"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        let alertController = UIAlertController(title: "Reset what you need :)", message: nil, preferredStyle: .Alert)
+        alertController.addAction(resetAllAction)
+        alertController.addAction(resetCountAction)
+        alertController.addAction(resetRowsAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true) {}
     }
     @IBAction func tapOnScreen(sender: AnyObject) {
         mantraPlus();

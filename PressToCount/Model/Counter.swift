@@ -67,6 +67,7 @@ class Counter: NSObject, NSCoding {
         inputType = inputTypeEnum ?? inputType
         let data = NSKeyedArchiver.archivedDataWithRootObject(self)
         NSUserDefaults.standardUserDefaults().setObject(data, forKey: CounterKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     //MARK: class methods
