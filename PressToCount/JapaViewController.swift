@@ -102,19 +102,19 @@ class JapaViewController: UIViewController {
     }
 
     @IBAction func reset(sender: AnyObject) {
-        let resetAllAction = UIAlertAction(title: "Reset all", style: .Default) { (_) in
+        let resetAllAction = UIAlertAction(title: "Reset all".localized, style: .Default) { (_) in
             self.progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
             self.rowsCount.text = "0"
         }
-        let resetCountAction = UIAlertAction(title: "Reset counter", style: .Default) { (_) in
+        let resetCountAction = UIAlertAction(title: "Reset counter".localized, style: .Default) { (_) in
             self.progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
         }
-        let resetRowsAction = UIAlertAction(title: "Reset rows", style: .Default) { (_) in
+        let resetRowsAction = UIAlertAction(title: "Reset repeat's count".localized, style: .Default) { (_) in
             self.rowsCount.text = "0"
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel) { (_) in }
         
-        let alertController = UIAlertController(title: "Reset what you need :)", message: nil, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Reset what you need :)".localized, message: nil, preferredStyle: .Alert)
         alertController.addAction(resetAllAction)
         alertController.addAction(resetCountAction)
         alertController.addAction(resetRowsAction)

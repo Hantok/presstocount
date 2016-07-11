@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PressToCount
+
+  Created by Roman on 7/9/16.
+  Copyright © 2016 Roman Slysh. All rights reserved.
+*/
+
+"Reset what you need :)" = "Reset what you need :)";
+"Reset all" = "Reset all";
+"Reset counter" = "Reset counter";
+"Reset repeat's count" = "Reset repeat's count";
+"Cancel" = "Cancel";
+
+"Repeat's count: " = "Repeat's count: ";

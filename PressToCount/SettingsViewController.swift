@@ -53,7 +53,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
             cell.stepper.value = Double(counter.maxClickCount)
-            cell.stepperLabel?.text = "Count of clicks: \(counter.maxClickCount)"
+            cell.stepperLabel?.text = "Repeat's count: ".localized + "\(counter.maxClickCount)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         case 1:
@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
             cell.stepper.value = Double(counter.maxClickCount)
-            cell.stepperLabel?.text = "Count of clicks: \(counter.maxClickCount)"
+            cell.stepperLabel?.text = "Repeat's count: ".localized + "\(counter.maxClickCount)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }

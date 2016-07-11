@@ -25,7 +25,7 @@ class MantraCountTableViewCell: UITableViewCell {
     }
     
     @IBAction func stepperChanged(stepper: UIStepper) {
-        self.stepperLabel?.text = "Count of clicks: \(Int(stepper.value))"
+        self.stepperLabel?.text = "Repeat's count: ".localized + "\(Int(stepper.value))"
     }
 
 }

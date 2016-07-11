@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PressToCount
+
+  Created by Roman on 7/9/16.
+  Copyright © 2016 Roman Slysh. All rights reserved.
+*/
+
+"Reset what you need :)" = "Що обнулити? :)";
+"Reset all" = "Обнулити все";
+"Reset counter" = "Обнулити лічильник";
+"Reset repeat's count" = "Обнулити кількість повторень";
+"Cancel" = "Відміна";
+
+"Repeat's count: " = "Кількість повторень: ";

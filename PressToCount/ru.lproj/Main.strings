@@ -1,0 +1,39 @@
+
+/* Class = "UISegmentedControl"; 2qn-as-B3c.segmentTitles[0] = "Volume"; ObjectID = "2qn-as-B3c"; */
+"2qn-as-B3c.segmentTitles[0]" = "Volume";
+
+/* Class = "UISegmentedControl"; 2qn-as-B3c.segmentTitles[1] = "Tap"; ObjectID = "2qn-as-B3c"; */
+"2qn-as-B3c.segmentTitles[1]" = "Tap";
+
+/* Class = "UISegmentedControl"; 2qn-as-B3c.segmentTitles[2] = "Both"; ObjectID = "2qn-as-B3c"; */
+"2qn-as-B3c.segmentTitles[2]" = "Both";
+
+/* Class = "UILabel"; text = "Input type"; ObjectID = "4R2-Us-YcD"; */
+"4R2-Us-YcD.text" = "Input type";
+
+/* Class = "UILabel"; text = "108"; ObjectID = "BGL-RA-ZzA"; */
+"BGL-RA-ZzA.text" = "108";
+
+/* Class = "UILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "Loaded by SecondViewController";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "QV4-5e-dEf"; */
+"QV4-5e-dEf.normalTitle" = "Back";
+
+/* Class = "UITabBarItem"; title = "Japa"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Japa";
+
+/* Class = "UITabBarItem"; title = "PressToCount"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "PressToCount";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "gFM-yP-dMJ"; */
+"gFM-yP-dMJ.normalTitle" = "Reset";
+
+/* Class = "UILabel"; text = "108"; ObjectID = "mu4-aR-dMj"; */
+"mu4-aR-dMj.text" = "108";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "viA-6P-3Pl"; */
+"viA-6P-3Pl.normalTitle" = "Settings";
+
+/* Class = "UILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Second View";
