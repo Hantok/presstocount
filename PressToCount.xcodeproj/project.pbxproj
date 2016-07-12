@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3085B8761D33F2EE00A27B73 /* HitTestPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */; };
 		30BFF7D01D33A91C00029D08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30BFF7D21D33A91C00029D08 /* Localizable.strings */; };
 		4E7015761CF483700088327F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015661CF483700088327F /* AppDelegate.swift */; };
 		4E7015771CF483700088327F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E7015671CF483700088327F /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HitTestPickerView.swift; path = Views/HitTestPickerView.swift; sourceTree = "<group>"; };
 		30BFF7CD1D33A8FE00029D08 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		30BFF7CF1D33A90B00029D08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		30BFF7D11D33A91C00029D08 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3085B8771D33F2F400A27B73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		4E7015651CF483700088327F /* PressToCount */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 				4E7015681CF483700088327F /* LaunchScreen.storyboard */,
 				4E70156A1CF483700088327F /* Main.storyboard */,
 				4E70156C1CF483700088327F /* Cells */,
+				3085B8771D33F2F400A27B73 /* Views */,
 				4E70156F1CF483700088327F /* Images.xcassets */,
 				4E7015701CF483700088327F /* Info.plist */,
 				4E7015711CF483700088327F /* JapaViewController.swift */,
@@ -352,6 +363,7 @@
 				4E70157F1CF483700088327F /* Counter.swift in Sources */,
 				4E7015811CF483700088327F /* SettingsViewController.swift in Sources */,
 				4E70157A1CF483700088327F /* InputTypeTableViewCell.swift in Sources */,
+				3085B8761D33F2EE00A27B73 /* HitTestPickerView.swift in Sources */,
 				4E70157B1CF483700088327F /* MantraCountTableViewCell.swift in Sources */,
 				4E70157E1CF483700088327F /* JapaViewController.swift in Sources */,
 				4E7015761CF483700088327F /* AppDelegate.swift in Sources */,

@@ -52,14 +52,12 @@ class JapaViewController: UIViewController {
 //        
 //        //TODO: need to finish
 //        let inputType = (NSUserDefaults.standardUserDefaults().objectForKey(userInputType) as! NSString).integerValue
-//        switch inputType {
-//        case InputTypeEnum.volume.rawValue:
+//        switch counter.inputType {
+//        case InputTypeEnum.volume:
 //            tapRecognizer.enabled = false
-//        case InputTypeEnum.tap.rawValue:
+//        case InputTypeEnum.tap:
 //            tapRecognizer.enabled = true
-//        case InputTypeEnum.both.rawValue:
-//            tapRecognizer.enabled = true
-//        default:
+//        case InputTypeEnum.both:
 //            tapRecognizer.enabled = true
 //        }
     }

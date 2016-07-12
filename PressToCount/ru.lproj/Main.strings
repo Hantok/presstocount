@@ -1,15 +1,15 @@
 
 /* Class = "UISegmentedControl"; 2qn-as-B3c.segmentTitles[0] = "Volume"; ObjectID = "2qn-as-B3c"; */
-"2qn-as-B3c.segmentTitles[0]" = "Volume";
+"2qn-as-B3c.segmentTitles[0]" = "Кнопки громкости";
 
 /* Class = "UISegmentedControl"; 2qn-as-B3c.segmentTitles[1] = "Tap"; ObjectID = "2qn-as-B3c"; */
-"2qn-as-B3c.segmentTitles[1]" = "Tap";
+"2qn-as-B3c.segmentTitles[1]" = "Касание экрана";
 
 /* Class = "UISegmentedControl"; 2qn-as-B3c.segmentTitles[2] = "Both"; ObjectID = "2qn-as-B3c"; */
-"2qn-as-B3c.segmentTitles[2]" = "Both";
+"2qn-as-B3c.segmentTitles[2]" = "Любой";
 
 /* Class = "UILabel"; text = "Input type"; ObjectID = "4R2-Us-YcD"; */
-"4R2-Us-YcD.text" = "Input type";
+"4R2-Us-YcD.text" = "Тип ввода:";
 
 /* Class = "UILabel"; text = "108"; ObjectID = "BGL-RA-ZzA"; */
 "BGL-RA-ZzA.text" = "108";

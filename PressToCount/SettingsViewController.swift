@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return 2;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,7 +57,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCellWithIdentifier("InputType", forIndexPath: indexPath) as! MantraCountTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("InputType", forIndexPath: indexPath) as! InputTypeTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.inputTypePickerView.subviews[1].backgroundColor = UIColor.whiteColor()
+            cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.whiteColor()
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
@@ -68,6 +71,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 1 {
+            return 100
+        }
+        return 40
+    }
+        
     /*
     // MARK: - Navigation
 
