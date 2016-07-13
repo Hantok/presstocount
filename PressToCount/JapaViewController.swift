@@ -18,7 +18,7 @@ class JapaViewController: UIViewController {
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     var volumeView: MPVolumeView!
     var newRowAdded: Bool = false
-    var counter = Counter()
+    var counter = Counter.getSavedCounter()
     var volumeSlider: UISlider?
     var volume: Float = 0
     
@@ -48,18 +48,8 @@ class JapaViewController: UIViewController {
         progressBar.maxValue = CGFloat(counter.maxClickCount)
         progressBar.setValue(CGFloat(counter.currentClickCount), animateWithDuration: 0.2)
         rowsCount.text = "\(counter.currentRowsCount)"
-//
-//        
-//        //TODO: need to finish
-//        let inputType = (NSUserDefaults.standardUserDefaults().objectForKey(userInputType) as! NSString).integerValue
-//        switch counter.inputType {
-//        case InputTypeEnum.volume:
-//            tapRecognizer.enabled = false
-//        case InputTypeEnum.tap:
-//            tapRecognizer.enabled = true
-//        case InputTypeEnum.both:
-//            tapRecognizer.enabled = true
-//        }
+
+        activateNeededInputType()
     }
 
     func volumeChanged(notification: NSNotification) {
@@ -73,25 +63,12 @@ class JapaViewController: UIViewController {
     }
     
     func applicationBecameActive() {
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(volumeChanged(_:)),
-                                                         name: "AVSystemController_SystemVolumeDidChangeNotification",
-                                                         object: nil)
-        //reset volume
-        volume = AVAudioSession.sharedInstance().outputVolume
-        //need for dissapear Volume HUD
-        do {
-            //listen to hardware volume buttons
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch _ {}
+        activateNeededInputType()
     }
     
     func applicationBecameInactive() {
         counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
-        if let vSlider = volumeSlider {
-            vSlider.setValue(volume, animated: false)
-        }
+        deactivateVolumeButtons()
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,6 +117,45 @@ class JapaViewController: UIViewController {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             rowsCount.text = String(Int(rowsCount.text!)! + 1)
             newRowAdded = true
+        }
+    }
+    
+    func activateNeededInputType() {
+        
+        //TODO: need to finish
+        switch counter.inputType {
+        case InputTypeEnum.volume:
+            deactivateVolumeButtons()
+            activateVolumeButtons()
+            tapRecognizer.enabled = false
+        case InputTypeEnum.tap:
+            tapRecognizer.enabled = true
+            deactivateVolumeButtons()
+        case InputTypeEnum.both:
+            tapRecognizer.enabled = true
+            deactivateVolumeButtons()
+            activateVolumeButtons()
+        }
+    }
+    
+    func activateVolumeButtons() {
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(volumeChanged(_:)),
+                                                         name: "AVSystemController_SystemVolumeDidChangeNotification",
+                                                         object: nil)
+        //reset volume
+        volume = AVAudioSession.sharedInstance().outputVolume
+        //need for dissapear Volume HUD
+        do {
+            //listen to hardware volume buttons
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {}
+    }
+    
+    func deactivateVolumeButtons() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
+        if let vSlider = volumeSlider {
+            vSlider.setValue(volume, animated: false)
         }
     }
 }
