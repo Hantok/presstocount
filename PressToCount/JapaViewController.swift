@@ -1,6 +1,6 @@
 //
 //  JapaViewController.swift
-//  Sadhana
+//  PressToCount
 //
 //  Created by Roman Slysh on 5/9/16.
 //  Copyright © 2016 Roman Slysh. All rights reserved.
@@ -25,35 +25,39 @@ class JapaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        volumeView = MPVolumeView(frame: CGRectMake(-CGFloat.max, 0.0, 0.0, 0.0))
+        volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0.0, width: 0.0, height: 0.0))
         volumeView.showsRouteButton = false
-        volumeView.hidden = false
+        volumeView.isHidden = false
         view.addSubview(volumeView)
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(applicationBecameActive),
-                                                         name: UIApplicationDidBecomeActiveNotification,
+                                                         name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                          object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(applicationBecameInactive),
-                                                         name: UIApplicationWillResignActiveNotification,
+                                                         name: NSNotification.Name.UIApplicationWillResignActive,
                                                          object: nil)
         volume = AVAudioSession.sharedInstance().outputVolume
         volumeSlider = (volumeView.subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         counter = Counter.getSavedCounter()
         progressBar.maxValue = CGFloat(counter.maxClickCount)
-        progressBar.setValue(CGFloat(counter.currentClickCount), animateWithDuration: 0.2)
+        if (counter.maxClickCount == counter.currentClickCount) {
+            progressBar.setValue(0, animateWithDuration: 0.2)
+        } else {
+            progressBar.setValue(CGFloat(counter.currentClickCount), animateWithDuration: 0.2)
+        }
         rowsCount.text = "\(counter.currentRowsCount)"
 
         activateNeededInputType()
     }
 
-    func volumeChanged(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
+    func volumeChanged(_ notification: Notification) {
+        if let userInfo = (notification as NSNotification).userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
                     mantraPlus();
@@ -76,31 +80,31 @@ class JapaViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func reset(sender: AnyObject) {
-        let resetAllAction = UIAlertAction(title: "Reset all".localized, style: .Default) { (_) in
+    @IBAction func reset(_ sender: AnyObject) {
+        let resetAllAction = UIAlertAction(title: "Reset all".localized, style: .default) { (_) in
             self.progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
             self.rowsCount.text = "0"
         }
-        let resetCountAction = UIAlertAction(title: "Reset counter".localized, style: .Default) { (_) in
+        let resetCountAction = UIAlertAction(title: "Reset counter".localized, style: .default) { (_) in
             self.progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
         }
-        let resetRowsAction = UIAlertAction(title: "Reset repeat's count".localized, style: .Default) { (_) in
+        let resetRowsAction = UIAlertAction(title: "Reset repeat's count".localized, style: .default) { (_) in
             self.rowsCount.text = "0"
         }
-        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .Cancel) { (_) in }
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { (_) in }
         
-        let alertController = UIAlertController(title: "Reset what you need :)".localized, message: nil, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Reset what you need :)".localized, message: nil, preferredStyle: .alert)
         alertController.addAction(resetAllAction)
         alertController.addAction(resetCountAction)
         alertController.addAction(resetRowsAction)
         alertController.addAction(cancelAction)
-        presentViewController(alertController, animated: true) {}
+        present(alertController, animated: true) {}
     }
-    @IBAction func tapOnScreen(sender: AnyObject) {
+    @IBAction func tapOnScreen(_ sender: AnyObject) {
         mantraPlus();
     }
 
-    @IBAction func changeSettings(sender: AnyObject) {
+    @IBAction func changeSettings(_ sender: AnyObject) {
         counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
     }
     
@@ -127,21 +131,21 @@ class JapaViewController: UIViewController {
         case InputTypeEnum.volume:
             deactivateVolumeButtons()
             activateVolumeButtons()
-            tapRecognizer.enabled = false
+            tapRecognizer.isEnabled = false
         case InputTypeEnum.tap:
-            tapRecognizer.enabled = true
+            tapRecognizer.isEnabled = true
             deactivateVolumeButtons()
         case InputTypeEnum.both:
-            tapRecognizer.enabled = true
+            tapRecognizer.isEnabled = true
             deactivateVolumeButtons()
             activateVolumeButtons()
         }
     }
     
     func activateVolumeButtons() {
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(volumeChanged(_:)),
-                                                         name: "AVSystemController_SystemVolumeDidChangeNotification",
+                                                         name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"),
                                                          object: nil)
         //reset volume
         volume = AVAudioSession.sharedInstance().outputVolume
@@ -153,7 +157,7 @@ class JapaViewController: UIViewController {
     }
     
     func deactivateVolumeButtons() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
         if let vSlider = volumeSlider {
             vSlider.setValue(volume, animated: false)
         }

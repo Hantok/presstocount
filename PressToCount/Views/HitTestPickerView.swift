@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HitTestDelegate: class {
-    func hitTestCalledForView(view: UIView)
+    func hitTestCalledForView(_ view: UIView)
 }
 
 class HitTestPickerView: UIPickerView {
@@ -20,13 +20,13 @@ class HitTestPickerView: UIPickerView {
         return super.becomeFirstResponder()
     }
     
-    override func canBecomeFirstResponder() -> Bool {
-        return super.canBecomeFirstResponder()
+    override var canBecomeFirstResponder : Bool {
+        return super.canBecomeFirstResponder
     }
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         hitTestDelegate.hitTestCalledForView(self)
-        return super.hitTest(point, withEvent: event)
+        return super.hitTest(point, with: event)
     }
 
     /*

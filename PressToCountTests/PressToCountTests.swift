@@ -1,15 +1,15 @@
 //
-//  SadhanaTests.swift
-//  SadhanaTests
+//  PressToCountTests.swift
+//  PressToCountTests
 //
 //  Created by Roman Slysh on 5/9/16.
 //  Copyright © 2016 Roman Slysh. All rights reserved.
 //
 
 import XCTest
-@testable import Sadhana
+@testable import PressToCount
 
-class SadhanaTests: XCTestCase {
+class PressToCountTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -28,7 +28,7 @@ class SadhanaTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

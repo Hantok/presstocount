@@ -1,6 +1,6 @@
 //
-//  SadhanaUITests.swift
-//  SadhanaUITests
+//  PressToCountUITests.swift
+//  PressToCountUITests
 //
 //  Created by Roman Slysh on 5/9/16.
 //  Copyright © 2016 Roman Slysh. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class SadhanaUITests: XCTestCase {
+class PressToCountUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

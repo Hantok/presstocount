@@ -1,6 +1,6 @@
 //
 //  SettingsViewController.swift
-//  Sadhana
+//  PressToCount
 //
 //  Created by Roman Slysh on 5/10/16.
 //  Copyright © 2016 Roman Slysh. All rights reserved.
@@ -24,55 +24,55 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func back(sender: AnyObject) {
+    @IBAction func back(_ sender: AnyObject) {
         let counter = Counter.getSavedCounter()
         
-        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! MantraCountTableViewCell
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MantraCountTableViewCell
         if counter.currentClickCount > Int(cell.stepper.value) {
             counter.save(Int(cell.stepper.value)-1, maximumClickCount: Int(cell.stepper.value))
         } else {
             counter.save(maximumClickCount: Int(cell.stepper.value))
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: TableView delegate/datasource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let counter = Counter.getSavedCounter()
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MantraCell", for: indexPath) as! MantraCountTableViewCell
             cell.stepper.value = Double(counter.maxClickCount)
             cell.stepperLabel?.text = "Repeat's count: ".localized + "\(counter.maxClickCount)"
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCellWithIdentifier("InputType", forIndexPath: indexPath) as! InputTypeTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.inputTypePickerView.subviews[1].backgroundColor = UIColor.whiteColor()
-            cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.whiteColor()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InputType", for: indexPath) as! InputTypeTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.inputTypePickerView.subviews[1].backgroundColor = UIColor.white
+            cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.white
             return cell
         default:
-            let cell = tableView.dequeueReusableCellWithIdentifier("MantraCell", forIndexPath: indexPath) as! MantraCountTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MantraCell", for: indexPath) as! MantraCountTableViewCell
             cell.stepper.value = Double(counter.maxClickCount)
             cell.stepperLabel?.text = "Repeat's count: ".localized + "\(counter.maxClickCount)"
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 1 {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).row == 1 {
             return 100
         }
         return 40

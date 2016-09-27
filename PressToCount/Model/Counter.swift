@@ -1,6 +1,6 @@
 //
 //  Counter.swift
-//  Sadhana
+//  PressToCount
 //
 //  Created by Roman Slysh on 5/19/16.
 //  Copyright © 2016 Roman Slysh. All rights reserved.
@@ -10,11 +10,11 @@ import UIKit
 
 extension String {
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
     
-    func localizedWithComment(comment:String) -> String {
-        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: comment)
+    func localizedWithComment(_ comment:String) -> String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: comment)
     }
 }
 
@@ -55,36 +55,36 @@ class Counter: NSObject, NSCoding {
     
     required convenience init(coder decoder: NSCoder) {
         self.init()
-        maxClickCount = decoder.decodeIntegerForKey("maxClickCount")
-        inputType = InputTypeEnum(rawValue: decoder.decodeIntegerForKey("inputType")) ?? .both
-        currentClickCount = decoder.decodeIntegerForKey("currentClickCount")
-        currentRowsCount = decoder.decodeIntegerForKey("currentRowsCount")
+        maxClickCount = decoder.decodeInteger(forKey: "maxClickCount")
+        inputType = InputTypeEnum(rawValue: decoder.decodeInteger(forKey: "inputType")) ?? .both
+        currentClickCount = decoder.decodeInteger(forKey: "currentClickCount")
+        currentRowsCount = decoder.decodeInteger(forKey: "currentRowsCount")
         
     }
     
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeInteger(maxClickCount, forKey: "maxClickCount")
-        coder.encodeInteger(inputType.rawValue, forKey: "inputType")
-        coder.encodeInteger(currentClickCount, forKey: "currentClickCount")
-        coder.encodeInteger(currentRowsCount, forKey: "currentRowsCount")
+    func encode(with coder: NSCoder) {
+        coder.encode(maxClickCount, forKey: "maxClickCount")
+        coder.encode(inputType.rawValue, forKey: "inputType")
+        coder.encode(currentClickCount, forKey: "currentClickCount")
+        coder.encode(currentRowsCount, forKey: "currentRowsCount")
         
     }
     
-    func save(curClickCount: Int? = nil, curRowsCount: Int? = nil, maximumClickCount: Int? = nil, inputTypeEnum: InputTypeEnum? = nil) {
+    func save(_ curClickCount: Int? = nil, curRowsCount: Int? = nil, maximumClickCount: Int? = nil, inputTypeEnum: InputTypeEnum? = nil) {
         currentClickCount = curClickCount ?? currentClickCount
         currentRowsCount = curRowsCount ?? currentRowsCount
         maxClickCount = maximumClickCount ?? maxClickCount
         inputType = inputTypeEnum ?? inputType
-        let data = NSKeyedArchiver.archivedDataWithRootObject(self)
-        NSUserDefaults.standardUserDefaults().setObject(data, forKey: CounterKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        let data = NSKeyedArchiver.archivedData(withRootObject: self)
+        UserDefaults.standard.set(data, forKey: CounterKey)
+        UserDefaults.standard.synchronize()
     }
     
     //MARK: class methods
     
     class func getSavedCounter() -> Counter {
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey(CounterKey) {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(data as! NSData) as! Counter
+        if let data = UserDefaults.standard.object(forKey: CounterKey) {
+            return NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as! Counter
         } else {
             return Counter()
         }

@@ -20,8 +20,8 @@
 		4E70157F1CF483700088327F /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015731CF483700088327F /* Counter.swift */; };
 		4E7015801CF483700088327F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015741CF483700088327F /* SecondViewController.swift */; };
 		4E7015811CF483700088327F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015751CF483700088327F /* SettingsViewController.swift */; };
-		4E70158C1CF48A270088327F /* SadhanaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015871CF483830088327F /* SadhanaUITests.swift */; };
-		4E70158D1CF48A2E0088327F /* SadhanaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015841CF483830088327F /* SadhanaTests.swift */; };
+		4E70158C1CF48A270088327F /* PressToCountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015871CF483830088327F /* PressToCountUITests.swift */; };
+		4E70158D1CF48A2E0088327F /* PressToCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015841CF483830088327F /* PressToCountTests.swift */; };
 		4E786BA71CE21D8F00ABFF4E /* MBCircularProgressBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; };
 		4E786BA91CE2212600ABFF4E /* MBCircularProgressBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E786BA61CE21D8F00ABFF4E /* MBCircularProgressBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -77,9 +77,9 @@
 		4E7015741CF483700088327F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4E7015751CF483700088327F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E7015831CF483830088327F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E7015841CF483830088327F /* SadhanaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SadhanaTests.swift; sourceTree = "<group>"; };
+		4E7015841CF483830088327F /* PressToCountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressToCountTests.swift; sourceTree = "<group>"; };
 		4E7015861CF483830088327F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E7015871CF483830088327F /* SadhanaUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SadhanaUITests.swift; sourceTree = "<group>"; };
+		4E7015871CF483830088327F /* PressToCountUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressToCountUITests.swift; sourceTree = "<group>"; };
 		4E786B6F1CE09FC500ABFF4E /* Press To Count.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Press To Count.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E786B851CE09FC500ABFF4E /* PressToCount.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PressToCount.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E786B901CE09FC600ABFF4E /* PressToCount.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PressToCount.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7015831CF483830088327F /* Info.plist */,
-				4E7015841CF483830088327F /* SadhanaTests.swift */,
+				4E7015841CF483830088327F /* PressToCountTests.swift */,
 			);
 			path = PressToCountTests;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7015861CF483830088327F /* Info.plist */,
-				4E7015871CF483830088327F /* SadhanaUITests.swift */,
+				4E7015871CF483830088327F /* PressToCountUITests.swift */,
 			);
 			path = PressToCountUITests;
 			sourceTree = "<group>";
@@ -275,13 +275,18 @@
 					4E786B6E1CE09FC500ABFF4E = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 48MD2JEP44;
+						LastSwiftMigration = 0800;
 					};
 					4E786B841CE09FC500ABFF4E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 48MD2JEP44;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4E786B6E1CE09FC500ABFF4E;
 					};
 					4E786B8F1CE09FC600ABFF4E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 48MD2JEP44;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4E786B6E1CE09FC500ABFF4E;
 					};
 				};
@@ -374,8 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E70158C1CF48A270088327F /* SadhanaUITests.swift in Sources */,
-				4E70158D1CF48A2E0088327F /* SadhanaTests.swift in Sources */,
+				4E70158C1CF48A270088327F /* PressToCountUITests.swift in Sources */,
+				4E70158D1CF48A2E0088327F /* PressToCountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Clicker;
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -553,6 +559,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Clicker;
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -560,11 +567,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 48MD2JEP44;
 				INFOPLIST_FILE = PressToCountTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.ClickerTests;
 				PRODUCT_NAME = PressToCount;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PressToCount.app/PressToCount";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Press To Count.app/Press To Count";
 			};
 			name = Debug;
 		};
@@ -572,33 +581,43 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 48MD2JEP44;
 				INFOPLIST_FILE = PressToCountTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.ClickerTests;
 				PRODUCT_NAME = PressToCount;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PressToCount.app/PressToCount";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Press To Count.app/Press To Count";
 			};
 			name = Release;
 		};
 		4E786BA01CE09FC600ABFF4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 48MD2JEP44;
 				INFOPLIST_FILE = PressToCountUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.ClickerUITests;
 				PRODUCT_NAME = PressToCount;
-				TEST_TARGET_NAME = "Press To Count";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PressToCount;
 			};
 			name = Debug;
 		};
 		4E786BA11CE09FC600ABFF4E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 48MD2JEP44;
 				INFOPLIST_FILE = PressToCountUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.ClickerUITests;
 				PRODUCT_NAME = PressToCount;
-				TEST_TARGET_NAME = "Press To Count";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PressToCount;
 			};
 			name = Release;
 		};

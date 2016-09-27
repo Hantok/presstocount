@@ -1,6 +1,6 @@
 //
 //  SecondViewController.swift
-//  Sadhana
+//  PressToCount
 //
 //  Created by Roman Slysh on 5/9/16.
 //  Copyright © 2016 Roman Slysh. All rights reserved.
