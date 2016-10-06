@@ -28,7 +28,7 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
         
         inputTypePickerView.delegate = self
         inputTypePickerView.dataSource = self
-        inputTypePickerView.hitTestDelegate = self
+        //inputTypePickerView.hitTestDelegate = self
         
         inputTypePickerView.selectRow(counter.inputType.rawValue, inComponent: 0, animated: true)
     }
@@ -74,6 +74,7 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
         default:
             counter.save(inputTypeEnum: InputTypeEnum.both)
         }
+        //self.minimizeViewAnimatedIfNeeded()
     }
     
     func minimizeViewAnimatedIfNeeded() {
