@@ -140,7 +140,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UZs-z6-eqX" id="mYI-8i-gbR">
-                                            <frame key="frameInset" width="383" height="43.5"/>
+                                            <frame key="frameInset" width="383" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OVG-Tr-NvU">
@@ -168,11 +168,11 @@
                                             <outlet property="stepperLabel" destination="mu4-aR-dMj" id="aWy-RV-dVY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InputType" rowHeight="240" id="RSB-kR-50b" customClass="InputTypeTableViewCell" customModule="Press_To_Count" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="383" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InputType" rowHeight="138" id="RSB-kR-50b" customClass="InputTypeTableViewCell" customModule="Press_To_Count" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="383" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RSB-kR-50b" id="ebD-1y-BJL">
-                                            <frame key="frameInset" width="383" height="239.5"/>
+                                            <frame key="frameInset" width="383" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R2-Us-YcD">
@@ -182,7 +182,7 @@
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFQ-8N-BkX" customClass="HitTestPickerView" customModule="Press_To_Count" customModuleProvider="target">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="216" id="BaB-BR-8JO"/>
+                                                        <constraint firstAttribute="height" constant="110" id="BaB-BR-8JO"/>
                                                     </constraints>
                                                 </pickerView>
                                             </subviews>
