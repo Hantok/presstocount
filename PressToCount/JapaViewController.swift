@@ -54,6 +54,11 @@ class JapaViewController: UIViewController {
         rowsCount.text = "\(counter.currentRowsCount)"
 
         activateNeededInputType()
+        
+        if !UserDefaults.standard.bool(forKey: "FirstRun") {
+            performSegue(withIdentifier: "FirstRun", sender: self)
+            UserDefaults.standard.setValue(true, forKey: "FirstRun")
+        }
     }
 
     func volumeChanged(_ notification: Notification) {

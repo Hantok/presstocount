@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +45,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
+        return 3;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +63,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.inputTypePickerView.subviews[1].backgroundColor = UIColor.white
             cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.white
             return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ShowTutorial", for: indexPath)
+            cell.textLabel?.text = "Show tutorial".localized
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MantraCell", for: indexPath) as! MantraCountTableViewCell
             cell.stepper.value = Double(counter.maxClickCount)
@@ -76,6 +81,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return 138
         }
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            performSegue(withIdentifier: "ShowTutorial", sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
         
     /*
