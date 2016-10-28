@@ -31,6 +31,8 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
         //inputTypePickerView.hitTestDelegate = self
         
         inputTypePickerView.selectRow(counter.inputType.rawValue, inComponent: 0, animated: true)
+        inputTypePickerView.subviews[1].isHidden = true
+        inputTypePickerView.subviews[2].isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
