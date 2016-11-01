@@ -19,7 +19,6 @@
 		4E70157C1CF483700088327F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E70156F1CF483700088327F /* Images.xcassets */; };
 		4E70157E1CF483700088327F /* JapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015711CF483700088327F /* JapaViewController.swift */; };
 		4E70157F1CF483700088327F /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015731CF483700088327F /* Counter.swift */; };
-		4E7015801CF483700088327F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015741CF483700088327F /* SecondViewController.swift */; };
 		4E7015811CF483700088327F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015751CF483700088327F /* SettingsViewController.swift */; };
 		4E70158C1CF48A270088327F /* PressToCountUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015871CF483830088327F /* PressToCountUITests.swift */; };
 		4E70158D1CF48A2E0088327F /* PressToCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015841CF483830088327F /* PressToCountTests.swift */; };
@@ -60,8 +59,8 @@
 
 /* Begin PBXFileReference section */
 		3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HitTestPickerView.swift; path = Views/HitTestPickerView.swift; sourceTree = "<group>"; };
-		30BFF7CD1D33A8FE00029D08 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
-		30BFF7CF1D33A90B00029D08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		30982D411DC913CB00FF95CB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		30982D421DC9146400FF95CB /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		30BFF7D11D33A91C00029D08 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30BFF7D31D33A92000029D08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30BFF7D41D33A92300029D08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -76,7 +75,6 @@
 		4E7015701CF483700088327F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E7015711CF483700088327F /* JapaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaViewController.swift; sourceTree = "<group>"; };
 		4E7015731CF483700088327F /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		4E7015741CF483700088327F /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4E7015751CF483700088327F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E7015831CF483830088327F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E7015841CF483830088327F /* PressToCountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressToCountTests.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				4E7015701CF483700088327F /* Info.plist */,
 				4E7015711CF483700088327F /* JapaViewController.swift */,
 				4E7015721CF483700088327F /* Model */,
-				4E7015741CF483700088327F /* SecondViewController.swift */,
 				30DAF64D1DABF926007839FB /* FirstRunViewController.swift */,
 				4E7015751CF483700088327F /* SettingsViewController.swift */,
 			);
@@ -367,7 +364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E7015801CF483700088327F /* SecondViewController.swift in Sources */,
 				4E70157F1CF483700088327F /* Counter.swift in Sources */,
 				4E7015811CF483700088327F /* SettingsViewController.swift in Sources */,
 				4E70157A1CF483700088327F /* InputTypeTableViewCell.swift in Sources */,
@@ -433,8 +429,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E70156B1CF483700088327F /* Base */,
-				30BFF7CD1D33A8FE00029D08 /* uk */,
-				30BFF7CF1D33A90B00029D08 /* ru */,
+				30982D411DC913CB00FF95CB /* ru */,
+				30982D421DC9146400FF95CB /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -14,6 +14,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.init(colorLiteralRed: 51/255, green: 149/255, blue: 211/255, alpha: 1)
 
         tableView.delegate = self
         tableView.dataSource = self

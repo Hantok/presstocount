@@ -11,17 +11,11 @@
 /* Class = "UILabel"; text = "Input type"; ObjectID = "4R2-Us-YcD"; */
 "4R2-Us-YcD.text" = "Тип вводу:";
 
-/* Class = "UILabel"; text = "108"; ObjectID = "BGL-RA-ZzA"; */
-"BGL-RA-ZzA.text" = "108";
-
 /* Class = "UILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
 "NDk-cv-Gan.text" = "Loaded by SecondViewController";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "QV4-5e-dEf"; */
 "QV4-5e-dEf.normalTitle" = "Back";
-
-/* Class = "UITabBarItem"; title = "Japa"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Japa";
 
 /* Class = "UITabBarItem"; title = "PressToCount"; ObjectID = "cPa-gy-q4n"; */
 "cPa-gy-q4n.title" = "PressToCount";
@@ -29,11 +23,10 @@
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "gFM-yP-dMJ"; */
 "gFM-yP-dMJ.normalTitle" = "Reset";
 
-/* Class = "UILabel"; text = "108"; ObjectID = "mu4-aR-dMj"; */
-"mu4-aR-dMj.text" = "108";
 
-/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "viA-6P-3Pl"; */
-"viA-6P-3Pl.normalTitle" = "Settings";
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "r5z-n0-kFX"; */
+"r5z-n0-kFX.title" = "Налаштування";
 
-/* Class = "UILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
-"zEq-FU-wV5.text" = "Second View";
+
+/* Class = "UILabel"; text = "Use hardware volume buttons for count or just tap on screen"; ObjectID = "22u-eu-yDD"; */
+"22u-eu-yDD.text" = "Використовуйте кнопки регулювання гучності або дотик екрану для підрахунку";

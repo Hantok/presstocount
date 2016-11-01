@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="Oqc-La-z3o">
             <objects>
-                <viewController title="Settings" id="r5z-n0-kFX" customClass="SettingsViewController" customModule="Press_To_Count" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r5z-n0-kFX" customClass="SettingsViewController" customModule="Press_To_Count" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oc8-gq-keG"/>
                         <viewControllerLayoutGuide type="bottom" id="CEO-dd-iAO"/>
@@ -172,6 +172,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="OVG-Tr-NvU" secondAttribute="trailing" constant="8" id="ijE-G2-nUb"/>
                                                 <constraint firstItem="mu4-aR-dMj" firstAttribute="height" secondItem="OVG-Tr-NvU" secondAttribute="height" id="kz1-3P-L4Q"/>
                                                 <constraint firstItem="mu4-aR-dMj" firstAttribute="leading" secondItem="mYI-8i-gbR" secondAttribute="leadingMargin" constant="8" id="mt7-7F-vHx"/>
+                                                <constraint firstItem="mu4-aR-dMj" firstAttribute="top" secondItem="OVG-Tr-NvU" secondAttribute="top" id="rIf-Qi-ISD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -305,6 +306,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x1U-0t-GhT"/>
+        <segue reference="Cts-gf-EhV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -129,6 +129,22 @@ class JapaViewController: UIViewController {
         }
     }
     
+    @IBAction func share(_ sender: AnyObject) {
+        let textToShare = "Replace your clicker with Press To Count app:"
+        
+        if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/press-to-count/id1116971508") {
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //Excluded Activities Code
+            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+            //
+            
+            activityVC.popoverPresentationController?.sourceView = sender as? UIView
+            self.present(activityVC, animated: true, completion: nil)
+        }
+        
+    }
     func activateNeededInputType() {
         
         //TODO: need to finish
