@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Appodeal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+        let adTypes: AppodealAdType = [.banner]
+        Appodeal.initialize(withApiKey:"55110ebe87b2a8ce316988143b618305bb3ca7cd1bad4ddc", types: adTypes)
         return true
     }
 

@@ -10,8 +10,9 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import MBCircularProgressBar
+import Appodeal
 
-class JapaViewController: UIViewController {
+class JapaViewController: UIViewController, AppodealBannerDelegate {
 
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var rowsCount: UILabel!
@@ -59,6 +60,13 @@ class JapaViewController: UIViewController {
             performSegue(withIdentifier: "FirstRun", sender: self)
             UserDefaults.standard.setValue(true, forKey: "FirstRun")
         }
+        
+        Appodeal.showAd(AppodealShowStyle.bannerBottom, rootViewController: self)
+        Appodeal.setBannerDelegate(self)
+        //Appodeal.setTestingEnabled(true)
+        //APDSdk.shared().setLogLevel(APDLogLevel.debug)
+        Appodeal.setBannerBackgroundVisible(true)
+        Appodeal.setSmartBannersEnabled(true)
     }
 
     func volumeChanged(_ notification: Notification) {
@@ -108,9 +116,10 @@ class JapaViewController: UIViewController {
     @IBAction func tapOnScreen(_ sender: AnyObject) {
         mantraPlus();
     }
-
-    @IBAction func changeSettings(_ sender: AnyObject) {
+    
+    @IBAction func changeSettings(_ sender: Any) {
         counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
+        performSegue(withIdentifier: "showSettings", sender: nil)
     }
     
     func mantraPlus() {
@@ -182,6 +191,27 @@ class JapaViewController: UIViewController {
         if let vSlider = volumeSlider {
             vSlider.setValue(volume, animated: false)
         }
+    }
+    
+    //MARK: - AppodealBannerDelegate
+    
+    func bannerDidLoadAdIsPrecache(_ precache: Bool){
+        
+    }
+    func bannerDidLoadAd(){
+        
+    }
+    func bannerDidRefresh(){
+        
+    }
+    func bannerDidFailToLoadAd(){
+        
+    }
+    func bannerDidClick(){
+        
+    }
+    func bannerDidShow(){
+        
     }
 }
 
