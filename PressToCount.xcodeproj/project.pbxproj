@@ -430,7 +430,7 @@
 				TargetAttributes = {
 					4E786B6E1CE09FC500ABFF4E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 48MD2JEP44;
+						DevelopmentTeam = RVKP8MCVP4;
 						LastSwiftMigration = 0800;
 					};
 					4E786B841CE09FC500ABFF4E = {
@@ -743,7 +743,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 48MD2JEP44;
+				DEVELOPMENT_TEAM = RVKP8MCVP4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -755,7 +755,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Clicker;
+				PRODUCT_BUNDLE_IDENTIFIER = "Roman-Slysh.Clicker";
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -769,7 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 48MD2JEP44;
+				DEVELOPMENT_TEAM = RVKP8MCVP4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -781,7 +781,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = rslysh.Clicker;
+				PRODUCT_BUNDLE_IDENTIFIER = "Roman-Slysh.Clicker";
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;

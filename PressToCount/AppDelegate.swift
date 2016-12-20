@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let adTypes: AppodealAdType = [.banner]
-        Appodeal.initialize(withApiKey:"55110ebe87b2a8ce316988143b618305bb3ca7cd1bad4ddc", types: adTypes)
+        Appodeal.initialize(withApiKey:"6d1ffa97eb13afd4dc6434ef16da9448a719131f0137036e", types: adTypes)
         return true
     }
 
