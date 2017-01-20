@@ -11,25 +11,27 @@ import Appodeal
 import StoreKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let kSectionsNumber = 1
+    var rowsNumber = 3
 
     @IBOutlet weak var tableView: UITableView!
     
-    var products = [SKProduct]()
+    var product = SKProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.tintColor = UIColor.init(colorLiteralRed: 51/255, green: 149/255, blue: 211/255, alpha: 1)
-
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
         
         let restoreButton = UIBarButtonItem(title: "Restore".localized,
                                             style: .plain,
                                             target: self,
                                             action: #selector(SettingsViewController.restoreTapped(_:)))
-        navigationItem.rightBarButtonItem = restoreButton
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.handlePurchaseNotification(_:)),
                                                name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
@@ -44,9 +46,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         Products.store.requestProducts{success, products in
             if success {
-                self.products = products!
-                self.tableView.reloadData()
-                //self.tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
+                if let prdcts = products {
+                    let product = prdcts[0]
+                    if !Products.store.isProductPurchased(product.productIdentifier) {
+                        self.product = product
+                        self.rowsNumber = 4
+                        self.tableView.reloadData()
+                        self.navigationItem.rightBarButtonItem = restoreButton
+                    } else {
+                        self.navigationItem.rightBarButtonItem = nil
+                        //removeAds
+                    }
+                }
             }
         }
     }
@@ -72,11 +83,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: TableView delegate/datasource
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return kSectionsNumber
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return rowsNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,14 +112,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RemoveAds", for: indexPath)  as! ProductCell
             cell.textLabel?.text = "Remove ads".localized
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
-            if products.count > 0 {
-                let product = products.first
-                
-                cell.product = product
-                cell.buyButtonHandler = { product in
-                    Products.store.buyProduct(product)
-                }
+            cell.product = product
+            cell.buyButtonHandler = { product in
+                Products.store.buyProduct(product)
             }
 
             return cell
@@ -144,11 +152,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func handlePurchaseNotification(_ notification: Notification) {
         guard let productID = notification.object as? String else { return }
-        
-        for (_, product) in products.enumerated() {
-            guard product.productIdentifier == productID else { continue }
-            
-            tableView.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .fade)
+        if product.productIdentifier == productID {
+            self.navigationItem.rightBarButtonItem = nil
+            self.rowsNumber = 3
+            tableView.deleteRows(at:  [IndexPath(row: 3, section: 0)], with: .fade)
+            //removeAds
         }
     }
 }

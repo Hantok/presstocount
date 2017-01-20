@@ -369,7 +369,7 @@
 				4E786B6C1CE09FC500ABFF4E /* Frameworks */,
 				4E786B6D1CE09FC500ABFF4E /* Resources */,
 				4E786BAA1CE2212600ABFF4E /* Embed Frameworks */,
-				4E70158F1CF49D4C0088327F /* ShellScript */,
+				4E70158F1CF49D4C0088327F /* Carthage */,
 				FD1873EC15A7606485CFDE31 /* [CP] Embed Pods Frameworks */,
 				6AE7CE85E1623237D7556330 /* [CP] Copy Pods Resources */,
 			);
@@ -499,7 +499,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E70158F1CF49D4C0088327F /* ShellScript */ = {
+		4E70158F1CF49D4C0088327F /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,6 +507,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/MBCircularProgressBar.framework",
 			);
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,7 +541,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FD1873EC15A7606485CFDE31 /* [CP] Embed Pods Frameworks */ = {

@@ -30,6 +30,7 @@ class ProductCell: UITableViewCell {
             if Products.store.isProductPurchased(product.productIdentifier) {
                 accessoryType = .checkmark
                 accessoryView = nil
+                textLabel?.text = "Ads removed".localized
                 detailTextLabel?.text = ""
             } else {
                 ProductCell.priceFormatter.locale = product.priceLocale
