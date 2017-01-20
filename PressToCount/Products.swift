@@ -10,7 +10,7 @@ import Foundation
 
 public struct Products {
     
-    public static let RemoveAds = "rslysh.Clicker.RemoveAdsTest"
+    public static let RemoveAds = "RomanSlysh.Clicker.RemoveAds"
     
     fileprivate static let productIdentifiers: Set<ProductIdentifier> = [Products.RemoveAds]
     

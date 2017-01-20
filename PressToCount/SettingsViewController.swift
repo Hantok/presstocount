@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-//    var products = [SKProduct]()
+    var products = [SKProduct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +25,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         
-//        let restoreButton = UIBarButtonItem(title: "Restore".localized,
-//                                            style: .plain,
-//                                            target: self,
-//                                            action: #selector(SettingsViewController.restoreTapped(_:)))
-//        navigationItem.rightBarButtonItem = restoreButton
-//        
-//        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.handlePurchaseNotification(_:)),
-//                                               name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
-//                                               object: nil)
+        let restoreButton = UIBarButtonItem(title: "Restore".localized,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(SettingsViewController.restoreTapped(_:)))
+        navigationItem.rightBarButtonItem = restoreButton
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.handlePurchaseNotification(_:)),
+                                               name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+                                               object: nil)
         
         Appodeal.showAd(AppodealShowStyle.bannerBottom, rootViewController: self)
         //Appodeal.setBannerDelegate(self)
@@ -42,13 +42,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         Appodeal.setBannerBackgroundVisible(true)
         Appodeal.setSmartBannersEnabled(true)
         
-//        Products.store.requestProducts{success, products in
-//            if success {
-//                self.products = products!
-//                self.tableView.reloadData()
-//                //self.tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
-//            }
-//        }
+        Products.store.requestProducts{success, products in
+            if success {
+                self.products = products!
+                self.tableView.reloadData()
+                //self.tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,16 +100,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RemoveAds", for: indexPath)  as! ProductCell
-//            cell.textLabel?.text = "Remove ads".localized
+            cell.textLabel?.text = "Remove ads".localized
             
-//            if products.count > 0 {
-//                let product = products[(indexPath as NSIndexPath).row]
-//                
-//                cell.product = product
-//                cell.buyButtonHandler = { product in
-//                    Products.store.buyProduct(product)
-//                }
-//            }
+            if products.count > 0 {
+                let product = products.first
+                
+                cell.product = product
+                cell.buyButtonHandler = { product in
+                    Products.store.buyProduct(product)
+                }
+            }
 
             return cell
         default:
@@ -139,16 +139,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
         
     func restoreTapped(_ sender: AnyObject) {
-//        Products.store.restorePurchases()
+        Products.store.restorePurchases()
     }
     
     func handlePurchaseNotification(_ notification: Notification) {
-//        guard let productID = notification.object as? String else { return }
+        guard let productID = notification.object as? String else { return }
         
-//        for (index, product) in products.enumerated() {
-//            guard product.productIdentifier == productID else { continue }
-//            
-//            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
-//        }
+        for (_, product) in products.enumerated() {
+            guard product.productIdentifier == productID else { continue }
+            
+            tableView.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .fade)
+        }
     }
 }
