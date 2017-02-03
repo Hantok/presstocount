@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.init(colorLiteralRed: 51/255, green: 149/255, blue: 211/255, alpha: 1)
+        //self.navigationController?.navigationBar.tintColor = .clickerBlue
         
         let restoreButton = UIBarButtonItem(title: "Restore".localized,
                                             style: .plain,
@@ -33,16 +33,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.handlePurchaseNotification(_:)),
-                                               name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification),
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePurchaseNotification(_:)),
+                                               name: .IAPHelperPurchaseNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRestoreError(_:)),
+                                               name: .IAPHelperRestoreFailed,
                                                object: nil)
         
-        Appodeal.showAd(AppodealShowStyle.bannerBottom, rootViewController: self)
-        //Appodeal.setBannerDelegate(self)
-        //Appodeal.setTestingEnabled(true)
-        //APDSdk.shared().setLogLevel(APDLogLevel.debug)
-        Appodeal.setBannerBackgroundVisible(true)
-        Appodeal.setSmartBannersEnabled(true)
+        showHideButtomBanner(viewController: self)
         
         Products.store.requestProducts{success, products in
             if success {
@@ -55,7 +53,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                         self.navigationItem.rightBarButtonItem = restoreButton
                     } else {
                         self.navigationItem.rightBarButtonItem = nil
-                        //removeAds
                     }
                 }
             }
@@ -111,9 +108,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RemoveAds", for: indexPath)  as! ProductCell
-            cell.textLabel?.text = "Remove ads".localized
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
-            
             cell.product = product
             cell.buyButtonHandler = { product in
                 Products.store.buyProduct(product)
@@ -156,7 +150,23 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             self.navigationItem.rightBarButtonItem = nil
             self.rowsNumber = 3
             tableView.deleteRows(at:  [IndexPath(row: 3, section: 0)], with: .fade)
-            //removeAds
+            showHideButtomBanner(viewController: self)
+            showAlert(message: "Purchase restored successfully!".localized)
         }
+    }
+    
+    func handleRestoreError(_ notification: Notification) {
+        showAlert(message: "Previous purchase not found!".localized)
+    }
+    
+    func showAlert(title: String? = nil, message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        //alert.view.tintColor = .clickerBlue
+        
+        let okAction = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        
+        alert.present()
     }
 }

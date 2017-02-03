@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let adTypes: AppodealAdType = [.banner]
-        Appodeal.initialize(withApiKey:"6d1ffa97eb13afd4dc6434ef16da9448a719131f0137036e", types: adTypes)
+        if !UserDefaults.standard.bool(forKey: Products.RemoveAds) {
+            Appodeal.initialize(withApiKey:"6d1ffa97eb13afd4dc6434ef16da9448a719131f0137036e", types: adTypes)
+        }
+        self.window?.tintColor = .clickerBlue
         return true
     }
 

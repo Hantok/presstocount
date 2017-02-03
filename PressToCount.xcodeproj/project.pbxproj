@@ -39,11 +39,12 @@
 		302E59BE1DD4FDFC006B0D16 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302E59BD1DD4FDFC006B0D16 /* CoreBluetooth.framework */; };
 		302E59C01DD4FE01006B0D16 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302E59BF1DD4FE01006B0D16 /* GLKit.framework */; };
 		302E59C21DD4FE06006B0D16 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302E59C11DD4FE06006B0D16 /* SafariServices.framework */; };
+		303B6C5F1E44C4CA00224740 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C5E1E44C4CA00224740 /* Macros.swift */; };
+		303B6C641E44C6E400224740 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C611E44C6E400224740 /* IAPHelper.swift */; };
+		303B6C651E44C6E400224740 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C621E44C6E400224740 /* ProductCell.swift */; };
+		303B6C661E44C6E400224740 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C631E44C6E400224740 /* Products.swift */; };
 		3085B8761D33F2EE00A27B73 /* HitTestPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */; };
 		30BFF7D01D33A91C00029D08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30BFF7D21D33A91C00029D08 /* Localizable.strings */; };
-		30D3E11F1DDA3B55000254C6 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3E11E1DDA3B55000254C6 /* IAPHelper.swift */; };
-		30D3E1211DDA44A3000254C6 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3E1201DDA44A3000254C6 /* ProductCell.swift */; };
-		30D3E1231DDA4BC9000254C6 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3E1221DDA4BC9000254C6 /* Products.swift */; };
 		30DAF64E1DABF926007839FB /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAF64D1DABF926007839FB /* FirstRunViewController.swift */; };
 		4E7015761CF483700088327F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7015661CF483700088327F /* AppDelegate.swift */; };
 		4E7015771CF483700088327F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E7015671CF483700088327F /* Assets.xcassets */; };
@@ -128,15 +129,16 @@
 		302E59BD1DD4FDFC006B0D16 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		302E59BF1DD4FE01006B0D16 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		302E59C11DD4FE06006B0D16 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		303B6C5E1E44C4CA00224740 /* Macros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
+		303B6C611E44C6E400224740 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPHelper.swift; path = IAP/IAPHelper.swift; sourceTree = "<group>"; };
+		303B6C621E44C6E400224740 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = IAP/ProductCell.swift; sourceTree = "<group>"; };
+		303B6C631E44C6E400224740 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Products.swift; path = IAP/Products.swift; sourceTree = "<group>"; };
 		3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HitTestPickerView.swift; path = Views/HitTestPickerView.swift; sourceTree = "<group>"; };
 		30982D411DC913CB00FF95CB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		30982D421DC9146400FF95CB /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		30BFF7D11D33A91C00029D08 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30BFF7D31D33A92000029D08 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30BFF7D41D33A92300029D08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		30D3E11E1DDA3B55000254C6 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
-		30D3E1201DDA44A3000254C6 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		30D3E1221DDA4BC9000254C6 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		30DAF64D1DABF926007839FB /* FirstRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRunViewController.swift; sourceTree = "<group>"; };
 		4E7015661CF483700088327F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E7015671CF483700088327F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -219,6 +221,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		303B6C601E44C56C00224740 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				303B6C611E44C6E400224740 /* IAPHelper.swift */,
+				303B6C621E44C6E400224740 /* ProductCell.swift */,
+				303B6C631E44C6E400224740 /* Products.swift */,
+			);
+			name = IAP;
+			sourceTree = "<group>";
+		};
 		3085B8771D33F2F400A27B73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,20 +243,18 @@
 			isa = PBXGroup;
 			children = (
 				4E7015661CF483700088327F /* AppDelegate.swift */,
-				4E7015671CF483700088327F /* Assets.xcassets */,
-				4E7015681CF483700088327F /* LaunchScreen.storyboard */,
-				4E70156A1CF483700088327F /* Main.storyboard */,
 				4E70156C1CF483700088327F /* Cells */,
 				3085B8771D33F2F400A27B73 /* Views */,
-				4E70156F1CF483700088327F /* Images.xcassets */,
-				4E7015701CF483700088327F /* Info.plist */,
-				4E7015711CF483700088327F /* JapaViewController.swift */,
 				4E7015721CF483700088327F /* Model */,
+				303B6C601E44C56C00224740 /* IAP */,
+				4E7015711CF483700088327F /* JapaViewController.swift */,
 				30DAF64D1DABF926007839FB /* FirstRunViewController.swift */,
 				4E7015751CF483700088327F /* SettingsViewController.swift */,
-				30D3E11E1DDA3B55000254C6 /* IAPHelper.swift */,
-				30D3E1201DDA44A3000254C6 /* ProductCell.swift */,
-				30D3E1221DDA4BC9000254C6 /* Products.swift */,
+				4E70156A1CF483700088327F /* Main.storyboard */,
+				4E7015681CF483700088327F /* LaunchScreen.storyboard */,
+				4E7015701CF483700088327F /* Info.plist */,
+				4E7015671CF483700088327F /* Assets.xcassets */,
+				4E70156F1CF483700088327F /* Images.xcassets */,
 			);
 			path = PressToCount;
 			sourceTree = "<group>";
@@ -261,6 +271,7 @@
 		4E7015721CF483700088327F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				303B6C5E1E44C4CA00224740 /* Macros.swift */,
 				4E7015731CF483700088327F /* Counter.swift */,
 			);
 			path = Model;
@@ -566,16 +577,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303B6C5F1E44C4CA00224740 /* Macros.swift in Sources */,
+				303B6C651E44C6E400224740 /* ProductCell.swift in Sources */,
 				4E70157F1CF483700088327F /* Counter.swift in Sources */,
 				4E7015811CF483700088327F /* SettingsViewController.swift in Sources */,
-				30D3E1231DDA4BC9000254C6 /* Products.swift in Sources */,
 				4E70157A1CF483700088327F /* InputTypeTableViewCell.swift in Sources */,
 				3085B8761D33F2EE00A27B73 /* HitTestPickerView.swift in Sources */,
-				30D3E11F1DDA3B55000254C6 /* IAPHelper.swift in Sources */,
 				4E70157B1CF483700088327F /* MantraCountTableViewCell.swift in Sources */,
 				4E70157E1CF483700088327F /* JapaViewController.swift in Sources */,
-				30D3E1211DDA44A3000254C6 /* ProductCell.swift in Sources */,
 				4E7015761CF483700088327F /* AppDelegate.swift in Sources */,
+				303B6C661E44C6E400224740 /* Products.swift in Sources */,
+				303B6C641E44C6E400224740 /* IAPHelper.swift in Sources */,
 				30DAF64E1DABF926007839FB /* FirstRunViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

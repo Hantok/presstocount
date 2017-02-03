@@ -12,7 +12,7 @@ import MediaPlayer
 import MBCircularProgressBar
 import Appodeal
 
-class JapaViewController: UIViewController, AppodealBannerDelegate {
+class JapaViewController: UIViewController {
 
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var rowsCount: UILabel!
@@ -56,17 +56,13 @@ class JapaViewController: UIViewController, AppodealBannerDelegate {
 
         activateNeededInputType()
         
-        if !UserDefaults.standard.bool(forKey: "FirstRun") {
-            performSegue(withIdentifier: "FirstRun", sender: self)
-            UserDefaults.standard.setValue(true, forKey: "FirstRun")
+        if !UserDefaults.standard.bool(forKey: FirstRun) {
+            UserDefaults.standard.setValue(true, forKey: FirstRun)
+            UserDefaults.standard.synchronize()
+            performSegue(withIdentifier: FirstRun, sender: self)
         }
-        
-        Appodeal.showAd(AppodealShowStyle.bannerBottom, rootViewController: self)
-        Appodeal.setBannerDelegate(self)
-        //Appodeal.setTestingEnabled(true)
-        //APDSdk.shared().setLogLevel(APDLogLevel.debug)
-        Appodeal.setBannerBackgroundVisible(true)
-        Appodeal.setSmartBannersEnabled(true)
+
+        showHideButtomBanner(viewController: self)
     }
 
     func volumeChanged(_ notification: Notification) {

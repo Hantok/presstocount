@@ -20,4 +20,11 @@
 
 "Show tutorial" = "Как пользоваться";
 
-"Ads removed" = "Без рекламы";
+"Remove ads" = "Без рекламы";
+
+"Restore" = "Восстановить";
+"Previous purchase not found!" = "Предыдущей покупки не найдено!";
+"Purchase restored successfully!" = "Покупку восстановлено успешно!";
+"OK" = "Хорошо";
+
+"Buy" = "Купить";

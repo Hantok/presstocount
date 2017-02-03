@@ -26,16 +26,16 @@ class ProductCell: UITableViewCell {
             guard let product = product else { return }
             
             textLabel?.text = product.localizedTitle
+            selectionStyle = .none
             
             if Products.store.isProductPurchased(product.productIdentifier) {
                 accessoryType = .checkmark
                 accessoryView = nil
-                textLabel?.text = "Ads removed".localized
                 detailTextLabel?.text = ""
             } else {
+                textLabel?.text = "Remove ads".localized
                 ProductCell.priceFormatter.locale = product.priceLocale
                 detailTextLabel?.text = ProductCell.priceFormatter.string(from: product.price)
-                
                 accessoryType = .none
                 accessoryView = newBuyButton()
             }
@@ -52,8 +52,8 @@ class ProductCell: UITableViewCell {
     
     func newBuyButton() -> UIButton {
         let button = UIButton(type: .system)
-        button.setTitleColor(tintColor, for: UIControlState())
-        button.setTitle("Buy", for: UIControlState())
+        //button.setTitleColor(.clickerBlue, for: .normal)
+        button.setTitle("Buy".localized, for: UIControlState())
         button.addTarget(self, action: #selector(ProductCell.buyButtonTapped(_:)), for: .touchUpInside)
         button.sizeToFit()
         

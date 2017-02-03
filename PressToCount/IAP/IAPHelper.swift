@@ -13,7 +13,6 @@ public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products
 
 open class IAPHelper : NSObject  {
     
-    static let IAPHelperPurchaseNotification = "IAPHelperPurchaseNotification"
     fileprivate let productIdentifiers: Set<ProductIdentifier>
     fileprivate var purchasedProductIdentifiers = Set<ProductIdentifier>()
     fileprivate var productsRequest: SKProductsRequest?
@@ -151,6 +150,20 @@ extension IAPHelper: SKPaymentTransactionObserver {
         purchasedProductIdentifiers.insert(identifier)
         UserDefaults.standard.set(true, forKey: identifier)
         UserDefaults.standard.synchronize()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: IAPHelper.IAPHelperPurchaseNotification), object: identifier)
+        NotificationCenter.default.post(name: .IAPHelperPurchaseNotification, object: identifier)
+    }
+
+    public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        if UserDefaults.standard.bool(forKey: Products.RemoveAds) {
+            print("Restore success")
+        } else {
+            NotificationCenter.default.post(name: .IAPHelperRestoreFailed, object: nil)
+            print("Restore NOT success")
+        }
+    }
+
+    public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        print("Restore NO SUCCESS - \(error)")
+        NotificationCenter.default.post(name: .IAPHelperRestoreFailed, object: nil)
     }
 }
