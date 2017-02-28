@@ -13,7 +13,8 @@ import StoreKit
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let kSectionsNumber = 1
-    var rowsNumber = 3
+    //TODO: - need for App Store submit
+    var rowsNumber = 1 // 3
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,8 +22,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.navigationController?.navigationBar.tintColor = .clickerBlue
         
         let restoreButton = UIBarButtonItem(title: "Restore".localized,
                                             style: .plain,
@@ -48,7 +47,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     let product = prdcts[0]
                     if !Products.store.isProductPurchased(product.productIdentifier) {
                         self.product = product
-                        self.rowsNumber = 4
+                        //TODO: - need for App Store submit
+                        self.rowsNumber = 2 //4
                         self.tableView.reloadData()
                         self.navigationItem.rightBarButtonItem = restoreButton
                     } else {
@@ -63,8 +63,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        back()
+    }
     
-    @IBAction func back(_ sender: AnyObject) {
+    func back() {
         let counter = Counter.getSavedCounter()
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MantraCountTableViewCell
@@ -96,17 +101,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.stepperLabel?.text = "Repeat's count: ".localized + "\(counter.maxClickCount)"
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
+            //TODO: - need for App Store submit
+//        case 1:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "InputType", for: indexPath) as! InputTypeTableViewCell
+//            cell.selectionStyle = UITableViewCellSelectionStyle.none
+//            cell.inputTypePickerView.subviews[1].backgroundColor = UIColor.white
+//            cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.white
+//            return cell
+//        case 2:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "ShowTutorial", for: indexPath)
+//            cell.textLabel?.text = "Show tutorial".localized
+//            return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InputType", for: indexPath) as! InputTypeTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
-            cell.inputTypePickerView.subviews[1].backgroundColor = UIColor.white
-            cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.white
-            return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ShowTutorial", for: indexPath)
-            cell.textLabel?.text = "Show tutorial".localized
-            return cell
-        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RemoveAds", for: indexPath)  as! ProductCell
             cell.product = product
             cell.buyButtonHandler = { product in
@@ -124,20 +130,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath as NSIndexPath).row == 1 {
-            return 138
-        }
-        return 40
+        //TODO: - need for App Store submit
+//        if (indexPath as NSIndexPath).row == 1 {
+//            return 138
+//        }
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
-            performSegue(withIdentifier: "ShowTutorial", sender: self)
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        if indexPath.row == 3 {
-            
-        }
+        //TODO: - need for App Store submit
+//        if indexPath.row == 2 {
+//            performSegue(withIdentifier: "ShowTutorial", sender: self)
+//            tableView.deselectRow(at: indexPath, animated: true)
+//        }
+//        if indexPath.row == 3 {
+//            
+//        }
     }
         
     func restoreTapped(_ sender: AnyObject) {

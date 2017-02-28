@@ -17,6 +17,8 @@ class JapaViewController: UIViewController {
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var rowsCount: UILabel!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
     var volumeView: MPVolumeView!
     var newRowAdded: Bool = false
     var counter = Counter.getSavedCounter()
@@ -25,6 +27,11 @@ class JapaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        settingsButton.image = UIImage(named: "settings")?.scaledTo(size: CGSize(width: 30, height: 30))
+
+        //TODO: - need for App Store submit
+        counter.save(inputTypeEnum: InputTypeEnum.tap)
         
         volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0.0, width: 0.0, height: 0.0))
         volumeView.showsRouteButton = false
@@ -41,6 +48,7 @@ class JapaViewController: UIViewController {
                                                          object: nil)
         volume = AVAudioSession.sharedInstance().outputVolume
         volumeSlider = (volumeView.subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,11 +64,11 @@ class JapaViewController: UIViewController {
 
         activateNeededInputType()
         
-        if !UserDefaults.standard.bool(forKey: FirstRun) {
-            UserDefaults.standard.setValue(true, forKey: FirstRun)
-            UserDefaults.standard.synchronize()
-            performSegue(withIdentifier: FirstRun, sender: self)
-        }
+//        if !UserDefaults.standard.bool(forKey: FirstRun) {
+//            UserDefaults.standard.setValue(true, forKey: FirstRun)
+//            UserDefaults.standard.synchronize()
+//            performSegue(withIdentifier: FirstRun, sender: self)
+//        }
 
         showHideButtomBanner(viewController: self)
     }
@@ -135,15 +143,14 @@ class JapaViewController: UIViewController {
     }
     
     @IBAction func share(_ sender: AnyObject) {
-        let textToShare = "Replace your clicker with Press To Count app:"
+        let textToShare = "Replace your clicker with the app:".localized
         
-        if let myWebsite = NSURL(string: "https://itunes.apple.com/us/app/press-to-count/id1116971508") {
-            let objectsToShare = [textToShare, myWebsite] as [Any]
+        if let myWebsite = NSURL(string: "http://apple.co/2m5rZSD") {
+            let objectsToShare = ["\(textToShare) \(myWebsite)"]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
             //Excluded Activities Code
             activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
-            //
             
             activityVC.popoverPresentationController?.sourceView = sender as? UIView
             self.present(activityVC, animated: true, completion: nil)

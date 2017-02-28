@@ -43,3 +43,14 @@ extension UIViewController: AppodealBannerDelegate {
         }
     }
 }
+
+extension UIImage {
+    
+    func scaledTo(size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: size.width, height: size.height)))
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return self }
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+}
