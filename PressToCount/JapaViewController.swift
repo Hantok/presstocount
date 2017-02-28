@@ -31,7 +31,7 @@ class JapaViewController: UIViewController {
         settingsButton.image = UIImage(named: "settings")?.scaledTo(size: CGSize(width: 30, height: 30))
 
         //TODO: - need for App Store submit
-        counter.save(inputTypeEnum: InputTypeEnum.tap)
+        //counter.save(inputTypeEnum: .tap)
         
         volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0.0, width: 0.0, height: 0.0))
         volumeView.showsRouteButton = false
