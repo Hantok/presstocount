@@ -12,7 +12,7 @@ class MantraCountTableViewCell: UITableViewCell {
 
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         stepper.maximumValue = 1000
@@ -23,7 +23,7 @@ class MantraCountTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     @IBAction func stepperChanged(_ stepper: UIStepper) {
         self.stepperLabel?.text = "Repeat's count: ".localized + "\(Int(stepper.value))"
     }

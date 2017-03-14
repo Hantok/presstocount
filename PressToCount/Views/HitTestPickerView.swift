@@ -13,17 +13,17 @@ protocol HitTestDelegate: class {
 }
 
 class HitTestPickerView: UIPickerView {
-    
+
     var hitTestDelegate: HitTestDelegate!
-    
+
     override func becomeFirstResponder() -> Bool {
         return super.becomeFirstResponder()
     }
-    
-    override var canBecomeFirstResponder : Bool {
+
+    override var canBecomeFirstResponder: Bool {
         return super.canBecomeFirstResponder
     }
-    
+
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         //hitTestDelegate.hitTestCalledForView(self)
         return super.hitTest(point, with: event)

@@ -43,6 +43,8 @@
 		303B6C641E44C6E400224740 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C611E44C6E400224740 /* IAPHelper.swift */; };
 		303B6C651E44C6E400224740 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C621E44C6E400224740 /* ProductCell.swift */; };
 		303B6C661E44C6E400224740 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303B6C631E44C6E400224740 /* Products.swift */; };
+		305CF0C51E77FFEE003884B6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305CF0C31E77FFEE003884B6 /* Crashlytics.framework */; };
+		305CF0C61E77FFEE003884B6 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305CF0C41E77FFEE003884B6 /* Fabric.framework */; };
 		3085B8761D33F2EE00A27B73 /* HitTestPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */; };
 		30BFF7D01D33A91C00029D08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30BFF7D21D33A91C00029D08 /* Localizable.strings */; };
 		30DAF64E1DABF926007839FB /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAF64D1DABF926007839FB /* FirstRunViewController.swift */; };
@@ -133,6 +135,8 @@
 		303B6C611E44C6E400224740 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPHelper.swift; path = IAP/IAPHelper.swift; sourceTree = "<group>"; };
 		303B6C621E44C6E400224740 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = IAP/ProductCell.swift; sourceTree = "<group>"; };
 		303B6C631E44C6E400224740 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Products.swift; path = IAP/Products.swift; sourceTree = "<group>"; };
+		305CF0C31E77FFEE003884B6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		305CF0C41E77FFEE003884B6 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		3085B8751D33F2EE00A27B73 /* HitTestPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HitTestPickerView.swift; path = Views/HitTestPickerView.swift; sourceTree = "<group>"; };
 		30982D411DC913CB00FF95CB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		30982D421DC9146400FF95CB /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				302E59BC1DD4FDF8006B0D16 /* JavaScriptCore.framework in Frameworks */,
 				302E59BA1DD4FDF2006B0D16 /* WebKit.framework in Frameworks */,
 				302E59B81DD4FDEE006B0D16 /* UIKit.framework in Frameworks */,
+				305CF0C51E77FFEE003884B6 /* Crashlytics.framework in Frameworks */,
 				302E59B61DD4FDE8006B0D16 /* Twitter.framework in Frameworks */,
 				302E59B41DD4FDE3006B0D16 /* SystemConfiguration.framework in Frameworks */,
 				302E59B21DD4FDDF006B0D16 /* StoreKit.framework in Frameworks */,
@@ -189,6 +194,7 @@
 				302E599B1DD4FD88006B0D16 /* EventKit.framework in Frameworks */,
 				302E599C1DD4FD88006B0D16 /* EventKitUI.framework in Frameworks */,
 				302E59981DD4FD82006B0D16 /* CoreTelephony.framework in Frameworks */,
+				305CF0C61E77FFEE003884B6 /* Fabric.framework in Frameworks */,
 				302E59961DD4FD7E006B0D16 /* CoreMotion.framework in Frameworks */,
 				302E59941DD4FD79006B0D16 /* CoreMedia.framework in Frameworks */,
 				302E59921DD4FD73006B0D16 /* CoreLocation.framework in Frameworks */,
@@ -321,6 +327,8 @@
 		4EC0428D1CE2314200FAB2D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				305CF0C31E77FFEE003884B6 /* Crashlytics.framework */,
+				305CF0C41E77FFEE003884B6 /* Fabric.framework */,
 				302E59C11DD4FE06006B0D16 /* SafariServices.framework */,
 				302E59BF1DD4FE01006B0D16 /* GLKit.framework */,
 				302E59BD1DD4FDFC006B0D16 /* CoreBluetooth.framework */,
@@ -383,6 +391,7 @@
 				4E70158F1CF49D4C0088327F /* Carthage */,
 				FD1873EC15A7606485CFDE31 /* [CP] Embed Pods Frameworks */,
 				6AE7CE85E1623237D7556330 /* [CP] Copy Pods Resources */,
+				3007003E1E76F1AD0063B07C /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -510,6 +519,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3007003E1E76F1AD0063B07C /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		4E70158F1CF49D4C0088327F /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -772,7 +795,7 @@
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -799,7 +822,7 @@
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

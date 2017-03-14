@@ -1,0 +1,60 @@
+disabled_rules:
+  - todo
+  - large_tuple
+  - shorthand_operator
+  - conditional_returns_on_newline
+  - unused_closure_parameter
+  - missing_docs
+opt_in_rules:
+ - force_unwrapping
+ - comma
+ - control_statement
+ - overridden_super_call
+ - redundant_nil_coalesing
+ - explicit_init
+ - redundant_nil_coalescing
+
+excluded:
+  - Carthage
+  - Pods
+  - Frameworks
+  - Libraries
+
+force_cast: warning
+force_try: warning
+
+line_length:
+  warning: 200
+  error: 400
+
+type_body_length:
+  warning: 600
+  error: 1000
+
+file_length:
+  warning: 1000
+  error: 2000
+
+function_body_length:
+  warning: 60
+  error: 200
+
+cyclomatic_complexity:
+  warning: 10
+  error: 25
+
+type_name:
+  min_length:
+    error: 3
+  max_length:
+    warning: 40
+    error: 50
+
+variable_name:
+  min_length:
+    warning: 3
+    error: 1
+  excluded:
+    - id
+    - key
+reporter: "xcode"

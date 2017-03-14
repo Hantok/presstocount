@@ -15,21 +15,21 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
 
     @IBOutlet weak var inputTypePickerView: HitTestPickerView!
     @IBOutlet weak var inputTypePickerSuperviewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var inputTypePickerSuperviewTopConstraint    : NSLayoutConstraint!
-    
+    @IBOutlet weak var inputTypePickerSuperviewTopConstraint: NSLayoutConstraint!
+
     var animationsEnabled = false
     var lastAnimatedView: UIView?
     var minimizationTimer: Timer?
-    
+
     var counter = Counter.getSavedCounter()
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         inputTypePickerView.delegate = self
         inputTypePickerView.dataSource = self
         //inputTypePickerView.hitTestDelegate = self
-        
+
         inputTypePickerView.selectRow(counter.inputType.rawValue, inComponent: 0, animated: true)
         inputTypePickerView.subviews[1].isHidden = true
         inputTypePickerView.subviews[2].isHidden = true
@@ -42,17 +42,17 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
     }
 
     // MARK: - UIPickerView
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 3
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
+
         switch row {
         case InputTypeEnum.volume.rawValue:
             return "Volume buttons".localized
@@ -64,7 +64,7 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
             return String(describing: InputTypeEnum.both)
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case InputTypeEnum.volume.rawValue:
@@ -78,15 +78,15 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
         }
         //self.minimizeViewAnimatedIfNeeded()
     }
-    
+
     func minimizeViewAnimatedIfNeeded() {
         if let lastAnimated = lastAnimatedView {
             minimizeViewAnimated(lastAnimated)
             lastAnimatedView = nil
         }
     }
-    
-    func hitTestCalledForView(_ view: UIView){
+
+    func hitTestCalledForView(_ view: UIView) {
         self.endEditing(true)
         if let lastAnimated = lastAnimatedView {
             minimizeViewAnimated(lastAnimated)
@@ -95,28 +95,28 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
         maximizeView(view)
         minimizationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(InputTypeTableViewCell.minimizeViewAnimatedIfNeeded), userInfo: nil, repeats: false)
     }
-    
+
     func maximizeView(_ view: UIView) {
         inputTypePickerSuperviewTopConstraint.constant -= (pickerHeightMaximized - pickerHeightMinimized)/2
         inputTypePickerSuperviewHeightConstraint.constant = pickerHeightMaximized
         inputTypePickerView.layoutIfNeeded()
     }
-    
-    func maximizeViewAnimated(_ view: UIView){
+
+    func maximizeViewAnimated(_ view: UIView) {
         UIView.animate(withDuration: 0.5, delay: 0, options: [.allowUserInteraction], animations: {self.maximizeView(view)}, completion: nil)
     }
-    
+
     func minimizeView(_ view: UIView) {
         inputTypePickerSuperviewTopConstraint.constant += (pickerHeightMaximized - pickerHeightMinimized)/2
         inputTypePickerSuperviewHeightConstraint.constant = pickerHeightMinimized
     }
-    
-    func minimizeViewAnimated(_ view: UIView){
+
+    func minimizeViewAnimated(_ view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             self.minimizeView(view)
-        }) 
+        })
     }
-    
+
     deinit {
         minimizationTimer?.invalidate()
     }

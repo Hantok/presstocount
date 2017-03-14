@@ -9,11 +9,11 @@
 import Foundation
 
 public struct Products {
-    
-    public static let RemoveAds = "RomanSlysh.Clicker.RemoveAds"
-    
+
+    public static let RemoveAds = "RomanSlysh.Clicker.RemoveAppAds"
+
     fileprivate static let productIdentifiers: Set<ProductIdentifier> = [Products.RemoveAds]
-    
+
     public static let store = IAPHelper(productIds: Products.productIdentifiers)
 }
 

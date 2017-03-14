@@ -104,13 +104,13 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="sett" style="plain" id="29N-4I-MwF">
+                            <barButtonItem title="sett" id="29N-4I-MwF">
                                 <color key="tintColor" red="0.20023842159999999" green="0.58518606419999997" blue="0.82837075000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changeSettings:" destination="9pv-A4-QxB" id="yY0-wu-ehH"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" systemItem="action" id="mDY-rE-SnS">
+                            <barButtonItem systemItem="action" id="mDY-rE-SnS">
                                 <color key="tintColor" red="0.20023842159999999" green="0.58518606419999997" blue="0.82837075000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="share:" destination="9pv-A4-QxB" id="cv1-an-b8D"/>
@@ -123,7 +123,7 @@
                         <outlet property="rowsCount" destination="BGL-RA-ZzA" id="g3K-yG-hlB"/>
                         <outlet property="settingsButton" destination="29N-4I-MwF" id="7a0-rt-IgT"/>
                         <outlet property="tapRecognizer" destination="gre-dU-YAt" id="pLG-4l-gP1"/>
-                        <segue destination="9n3-BW-Yn2" kind="presentation" identifier="FirstRun" modalTransitionStyle="crossDissolve" id="Cts-gf-EhV"/>
+                        <segue destination="9n3-BW-Yn2" kind="presentation" identifier="firstRun" modalTransitionStyle="crossDissolve" id="Cts-gf-EhV"/>
                         <segue destination="r5z-n0-kFX" kind="show" identifier="showSettings" id="0fe-qo-fNc"/>
                     </connections>
                 </viewController>
@@ -156,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UZs-z6-eqX" id="mYI-8i-gbR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OVG-Tr-NvU">
@@ -191,7 +191,7 @@
                                         <rect key="frame" x="0.0" y="72" width="320" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RSB-kR-50b" id="ebD-1y-BJL">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="137.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R2-Us-YcD">
@@ -225,18 +225,18 @@
                                         <rect key="frame" x="0.0" y="210" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxw-Du-N2l" id="Lgi-62-xtO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n8F-kY-yx7">
-                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KpI-cb-7L0">
-                                                    <rect key="frame" x="15" y="25" width="29" height="15"/>
+                                                    <rect key="frame" x="15" y="25.5" width="29" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>

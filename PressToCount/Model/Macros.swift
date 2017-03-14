@@ -9,7 +9,7 @@
 import UIKit
 import Appodeal
 
-let FirstRun = "FirstRun"
+let firstRun = "firstRun"
 
 extension Notification.Name {
     static let IAPHelperPurchaseNotification = Notification.Name("IAPHelperPurchaseNotification")
@@ -45,7 +45,7 @@ extension UIViewController: AppodealBannerDelegate {
 }
 
 extension UIImage {
-    
+
     func scaledTo(size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         self.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: size.width, height: size.height)))

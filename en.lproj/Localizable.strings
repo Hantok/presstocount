@@ -9,7 +9,7 @@
 "Reset what you need :)" = "Reset what you need :)";
 "Reset all" = "Reset all";
 "Reset counter" = "Reset counter";
-"Reset repeat's count" = "Reset rows's count";
+"Reset repeat's count" = "Reset row's count";
 "Cancel" = "Cancel";
 
 "Repeat's count: " = "Repeat's count: ";
@@ -26,5 +26,7 @@
 "Previous purchase not found!" = "Previous purchase not found!";
 "Purchase restored successfully!" = "Purchase restored successfully!";
 "OK" = "OK";
+
+"Replace your clicker with the app:" = "Replace your clicker with the app:";
 
 "Buy" = "Buy";

@@ -18,26 +18,26 @@ class JapaViewController: UIViewController {
     @IBOutlet weak var rowsCount: UILabel!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
-    
+
     var volumeView: MPVolumeView!
     var newRowAdded: Bool = false
     var counter = Counter.getSavedCounter()
     var volumeSlider: UISlider?
     var volume: Float = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         settingsButton.image = UIImage(named: "settings")?.scaledTo(size: CGSize(width: 30, height: 30))
 
         //TODO: - need for App Store submit
-        //counter.save(inputTypeEnum: .tap)
-        
+        counter.save(inputTypeEnum: .tap)
+
         volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0.0, width: 0.0, height: 0.0))
         volumeView.showsRouteButton = false
         volumeView.isHidden = false
         view.addSubview(volumeView)
-        
+
         NotificationCenter.default.addObserver(self,
                                                          selector: #selector(applicationBecameActive),
                                                          name: NSNotification.Name.UIApplicationDidBecomeActive,
@@ -47,15 +47,15 @@ class JapaViewController: UIViewController {
                                                          name: NSNotification.Name.UIApplicationWillResignActive,
                                                          object: nil)
         volume = AVAudioSession.sharedInstance().outputVolume
-        volumeSlider = (volumeView.subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)
-        
+        volumeSlider = (volumeView.subviews.filter {NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)
+
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         counter = Counter.getSavedCounter()
         progressBar.maxValue = CGFloat(counter.maxClickCount)
-        if (counter.maxClickCount == counter.currentClickCount) {
+        if counter.maxClickCount == counter.currentClickCount {
             progressBar.setValue(0, animateWithDuration: 0.2)
         } else {
             progressBar.setValue(CGFloat(counter.currentClickCount), animateWithDuration: 0.2)
@@ -63,11 +63,11 @@ class JapaViewController: UIViewController {
         rowsCount.text = "\(counter.currentRowsCount)"
 
         activateNeededInputType()
-        
-//        if !UserDefaults.standard.bool(forKey: FirstRun) {
-//            UserDefaults.standard.setValue(true, forKey: FirstRun)
+
+//        if !UserDefaults.standard.bool(forKey: firstRun) {
+//            UserDefaults.standard.setValue(true, forKey: firstRun)
 //            UserDefaults.standard.synchronize()
-//            performSegue(withIdentifier: FirstRun, sender: self)
+//            performSegue(withIdentifier: firstRun, sender: self)
 //        }
 
         showHideButtomBanner(viewController: self)
@@ -77,21 +77,26 @@ class JapaViewController: UIViewController {
         if let userInfo = (notification as NSNotification).userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
-                    mantraPlus();
+                    mantraPlus()
                 }
             }
         }
     }
-    
+
     func applicationBecameActive() {
         activateNeededInputType()
     }
-    
+
     func applicationBecameInactive() {
-        counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
-        deactivateVolumeButtons()
+        guard let text = rowsCount.text else {
+            return
+        }
+        counter.save(Int(progressBar.value), curRowsCount: Int(text))
+        defer {
+            deactivateVolumeButtons()
+        }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -109,7 +114,7 @@ class JapaViewController: UIViewController {
             self.rowsCount.text = "0"
         }
         let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { (_) in }
-        
+
         let alertController = UIAlertController(title: "Reset what you need :)".localized, message: nil, preferredStyle: .alert)
         alertController.addAction(resetAllAction)
         alertController.addAction(resetCountAction)
@@ -118,47 +123,55 @@ class JapaViewController: UIViewController {
         present(alertController, animated: true) {}
     }
     @IBAction func tapOnScreen(_ sender: AnyObject) {
-        mantraPlus();
+        mantraPlus()
     }
-    
+
     @IBAction func changeSettings(_ sender: Any) {
-        counter.save(Int(progressBar.value), curRowsCount: Int(rowsCount.text!))
-        performSegue(withIdentifier: "showSettings", sender: nil)
+        guard let text = rowsCount.text else {
+            return
+        }
+        counter.save(Int(progressBar.value), curRowsCount: Int(text))
+        defer {
+            performSegue(withIdentifier: "showSettings", sender: nil)
+        }
     }
-    
+
     func mantraPlus() {
-        if(newRowAdded) {
+        if newRowAdded {
             progressBar.setValue(CGFloat(0), animateWithDuration: 0.5)
             newRowAdded = false
         }
-        
+
         let value = Int(progressBar.value) + 1
         progressBar.setValue(CGFloat(value), animateWithDuration: 0.25)
-        
+
         if counter.maxClickCount == Int(value) {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            rowsCount.text = String(Int(rowsCount.text!)! + 1)
+            guard let text = rowsCount.text, let value = Int(text) else {
+                return
+            }
+            rowsCount.text = "\(value + 1)"
             newRowAdded = true
         }
     }
-    
+
     @IBAction func share(_ sender: AnyObject) {
         let textToShare = "Replace your clicker with the app:".localized
-        
+
         if let myWebsite = NSURL(string: "http://apple.co/2m5rZSD") {
             let objectsToShare = ["\(textToShare) \(myWebsite)"]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            
+
             //Excluded Activities Code
             activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
-            
-            activityVC.popoverPresentationController?.sourceView = sender as? UIView
+
+            activityVC.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
             self.present(activityVC, animated: true, completion: nil)
         }
-        
+
     }
     func activateNeededInputType() {
-        
+
         //TODO: need to finish
         switch counter.inputType {
         case InputTypeEnum.volume:
@@ -174,7 +187,7 @@ class JapaViewController: UIViewController {
             activateVolumeButtons()
         }
     }
-    
+
     func activateVolumeButtons() {
         NotificationCenter.default.addObserver(self,
                                                          selector: #selector(volumeChanged(_:)),
@@ -188,33 +201,32 @@ class JapaViewController: UIViewController {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch _ {}
     }
-    
+
     func deactivateVolumeButtons() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
         if let vSlider = volumeSlider {
             vSlider.setValue(volume, animated: false)
         }
     }
-    
+
     //MARK: - AppodealBannerDelegate
-    
-    func bannerDidLoadAdIsPrecache(_ precache: Bool){
-        
+
+    func bannerDidLoadAdIsPrecache(_ precache: Bool) {
+
     }
-    func bannerDidLoadAd(){
-        
+    func bannerDidLoadAd() {
+
     }
-    func bannerDidRefresh(){
-        
+    func bannerDidRefresh() {
+
     }
-    func bannerDidFailToLoadAd(){
-        
+    func bannerDidFailToLoadAd() {
+
     }
-    func bannerDidClick(){
-        
+    func bannerDidClick() {
+
     }
-    func bannerDidShow(){
-        
+    func bannerDidShow() {
+
     }
 }
-
