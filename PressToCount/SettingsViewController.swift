@@ -75,8 +75,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     private func requestIAPProducts() {
         Products.store.requestProducts {success, products in
             if success {
-                if let prdcts = products {
-                    let product = prdcts[0]
+                if let prdcts = products, let product = prdcts.first {
                     if !Products.store.isProductPurchased(product.productIdentifier) {
                         self.product = product
                         //TODO: - need for App Store submit
