@@ -9,7 +9,7 @@
 import StoreKit
 
 public typealias ProductIdentifier = String
-public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> ()
+public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products: [SKProduct]?) -> Void
 
 open class IAPHelper: NSObject {
 
@@ -139,7 +139,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
         print("fail...")
         if let transactionError = transaction.error as? NSError {
             if transactionError.code != SKError.paymentCancelled.rawValue {
-                print("Transaction Error: \(transaction.error?.localizedDescription)")
+                print("Transaction Error: \(String(describing: transaction.error?.localizedDescription))")
             }
         }
 

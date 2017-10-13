@@ -95,7 +95,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    //MARK: TableView delegate/datasource
+    // MARK: TableView delegate/datasource
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return kSectionsNumber

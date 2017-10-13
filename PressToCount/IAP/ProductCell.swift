@@ -19,7 +19,7 @@ class ProductCell: UITableViewCell {
         return formatter
     }()
 
-    var buyButtonHandler: ((_ product: SKProduct) -> ())?
+    var buyButtonHandler: ((_ product: SKProduct) -> Void)?
 
     var product: SKProduct? {
         didSet {

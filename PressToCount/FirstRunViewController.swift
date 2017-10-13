@@ -19,7 +19,6 @@ class FirstRunViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-
     /*
     // MARK: - Navigation
 

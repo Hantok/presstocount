@@ -14,7 +14,7 @@ protocol HitTestDelegate: class {
 
 class HitTestPickerView: UIPickerView {
 
-    var hitTestDelegate: HitTestDelegate!
+    weak var hitTestDelegate: HitTestDelegate!
 
     override func becomeFirstResponder() -> Bool {
         return super.becomeFirstResponder()

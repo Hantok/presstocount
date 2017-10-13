@@ -1,7 +1,7 @@
 PODS:
-  - Appodeal/AmazonAdsAdapter (1.3.9):
+  - Appodeal/AmazonAdsAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/Banner (1.3.9):
+  - Appodeal/Banner (2.1.6):
     - Appodeal/AmazonAdsAdapter
     - Appodeal/FacebookAudienceAdapter
     - Appodeal/GoogleAdMobAdapter
@@ -10,28 +10,31 @@ PODS:
     - Appodeal/StartAppAdapter
     - Appodeal/TwitterMoPubAdapter
     - Appodeal/YandexAdapter
-  - Appodeal/Core (1.3.9)
-  - Appodeal/FacebookAudienceAdapter (1.3.9):
+    - Appodeal/ZPlayAdapter
+  - Appodeal/Core (2.1.6)
+  - Appodeal/FacebookAudienceAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/GoogleAdMobAdapter (1.3.9):
+  - Appodeal/GoogleAdMobAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/InMobiAdapter (1.3.9):
+  - Appodeal/InMobiAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/MyTargetAdapter (1.3.9):
+  - Appodeal/MyTargetAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/StartAppAdapter (1.3.9):
+  - Appodeal/StartAppAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/TwitterMoPubAdapter (1.3.9):
+  - Appodeal/TwitterMoPubAdapter (2.1.6):
     - Appodeal/Core
-  - Appodeal/YandexAdapter (1.3.9):
+  - Appodeal/YandexAdapter (2.1.6):
+    - Appodeal/Core
+  - Appodeal/ZPlayAdapter (2.1.6):
     - Appodeal/Core
 
 DEPENDENCIES:
   - Appodeal/Banner
 
 SPEC CHECKSUMS:
-  Appodeal: 55794c57ce4bc6b3c5e82072ed0b7d86ed2ce728
+  Appodeal: a2d6f010c037b78bdd10d1bafc4572951302eb2d
 
 PODFILE CHECKSUM: 0079f37febd12410f18c7f7ee76651e133adb490
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0

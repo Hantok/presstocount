@@ -209,7 +209,7 @@ class JapaViewController: UIViewController {
         }
     }
 
-    //MARK: - AppodealBannerDelegate
+    // MARK: - AppodealBannerDelegate
 
     func bannerDidLoadAdIsPrecache(_ precache: Bool) {
 

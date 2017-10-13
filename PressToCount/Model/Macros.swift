@@ -25,7 +25,7 @@ extension UIAlertController {
 
 extension UIColor {
     static var clickerBlue: UIColor {
-        return UIColor.init(colorLiteralRed: 51/255, green: 149/255, blue: 211/255, alpha: 1)
+        return UIColor(red: 51/255, green: 149/255, blue: 211/255, alpha: 1)
     }
 }
 

@@ -80,7 +80,7 @@ class Counter: NSObject, NSCoding {
         UserDefaults.standard.synchronize()
     }
 
-    //MARK: class methods
+    // MARK: class methods
 
     class func getSavedCounter() -> Counter {
         if let data = UserDefaults.standard.object(forKey: kCounterKey) as? Data {
