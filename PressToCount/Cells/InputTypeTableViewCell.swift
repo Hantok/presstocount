@@ -79,7 +79,7 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
         //self.minimizeViewAnimatedIfNeeded()
     }
 
-    func minimizeViewAnimatedIfNeeded() {
+    @objc func minimizeViewAnimatedIfNeeded() {
         if let lastAnimated = lastAnimatedView {
             minimizeViewAnimated(lastAnimated)
             lastAnimatedView = nil

@@ -60,7 +60,7 @@ class ProductCell: UITableViewCell {
         return button
     }
 
-    func buyButtonTapped(_ sender: AnyObject) {
+    @objc func buyButtonTapped(_ sender: AnyObject) {
         guard let prod = product else {
             return
         }

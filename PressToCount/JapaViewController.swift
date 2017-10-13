@@ -73,7 +73,7 @@ class JapaViewController: UIViewController {
         showHideButtomBanner(viewController: self)
     }
 
-    func volumeChanged(_ notification: Notification) {
+    @objc func volumeChanged(_ notification: Notification) {
         if let userInfo = (notification as NSNotification).userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
@@ -83,11 +83,11 @@ class JapaViewController: UIViewController {
         }
     }
 
-    func applicationBecameActive() {
+    @objc func applicationBecameActive() {
         activateNeededInputType()
     }
 
-    func applicationBecameInactive() {
+    @objc func applicationBecameInactive() {
         guard let text = rowsCount.text else {
             return
         }

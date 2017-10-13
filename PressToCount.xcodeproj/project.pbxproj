@@ -452,12 +452,12 @@
 					4E786B6E1CE09FC500ABFF4E = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = RVKP8MCVP4;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 					4E786B841CE09FC500ABFF4E = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 48MD2JEP44;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						TestTargetID = 4E786B6E1CE09FC500ABFF4E;
 					};
 					4E786B8F1CE09FC600ABFF4E = {
@@ -821,7 +821,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Roman-Slysh.Clicker";
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -848,7 +849,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Roman-Slysh.Clicker";
 				PRODUCT_NAME = "Press To Count";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -862,7 +864,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.ClickerTests;
 				PRODUCT_NAME = PressToCount;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Press To Count.app/Press To Count";
 			};
 			name = Debug;
@@ -876,7 +879,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rslysh.ClickerTests;
 				PRODUCT_NAME = PressToCount;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Press To Count.app/Press To Count";
 			};
 			name = Release;

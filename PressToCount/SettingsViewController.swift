@@ -152,11 +152,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return 50
     }
 
-    func restoreTapped(_ sender: AnyObject) {
+    @objc func restoreTapped(_ sender: AnyObject) {
         Products.store.restorePurchases()
     }
 
-    func handlePurchaseNotification(_ notification: Notification) {
+    @objc func handlePurchaseNotification(_ notification: Notification) {
         guard let productID = notification.object as? String else { return }
         if product.productIdentifier == productID {
             self.navigationItem.rightBarButtonItem = nil
@@ -167,7 +167,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    func handleRestoreError(_ notification: Notification) {
+    @objc func handleRestoreError(_ notification: Notification) {
         showAlert(message: "Previous purchase not found!".localized)
     }
 
