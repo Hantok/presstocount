@@ -27,6 +27,10 @@ extension UIColor {
     static var clickerBlue: UIColor {
         return UIColor(red: 51/255, green: 149/255, blue: 211/255, alpha: 1)
     }
+
+    static var mercury: UIColor {
+        return UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+    }
 }
 
 extension UIViewController: AppodealBannerDelegate {

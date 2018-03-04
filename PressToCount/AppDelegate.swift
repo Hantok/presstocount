@@ -21,9 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let adTypes: AppodealAdType = [.banner]
             Appodeal.initialize(withApiKey:"6d1ffa97eb13afd4dc6434ef16da9448a719131f0137036e", types: adTypes)
         }
-        window?.tintColor = .clickerBlue
         Fabric.sharedSDK().debug = true
         Fabric.with([Crashlytics.self])
+
+        Theme.current.apply()
+
         return true
     }
 }

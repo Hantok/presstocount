@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     let kSectionsNumber = 1
     //TODO: - need for App Store submit
-    var numberOfRows = 1 // 2
+    var numberOfRows = 2 // 3
     var dummyInt = 0
 
     @IBOutlet weak var tableView: UITableView!
@@ -79,7 +79,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     if !Products.store.isProductPurchased(product.productIdentifier) {
                         self.product = product
                         //TODO: - need for App Store submit
-                        self.numberOfRows = 2 //3
+                        self.numberOfRows = 3 //4
                         self.tableView.reloadData()
                         self.navigationItem.rightBarButtonItem = self.restoreButton
                     } else {
@@ -124,6 +124,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 //            cell.inputTypePickerView.subviews[2].backgroundColor = UIColor.white
 //            return cell
 //        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ThemeCell", for: indexPath) as? ThemeTableViewCell else {
+                return ThemeTableViewCell()
+            }
+
+            return cell
+        case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "RemoveAds", for: indexPath) as? ProductCell else {
                 return ProductCell()
             }
@@ -160,7 +166,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let productID = notification.object as? String else { return }
         if product.productIdentifier == productID {
             self.navigationItem.rightBarButtonItem = nil
-            self.numberOfRows = 1
+            self.numberOfRows = 2
             tableView.deleteRows(at:  [IndexPath(row: 1, section: 0)], with: .fade)
             showHideButtomBanner(viewController: self)
             showAlert(message: "Purchase restored successfully!".localized)
@@ -173,7 +179,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     func showAlert(title: String? = nil, message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        //alert.view.tintColor = .clickerBlue
 
         let okAction = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
 

@@ -58,10 +58,10 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
             return "Volume buttons".localized
         case InputTypeEnum.tap.rawValue:
             return "Screen touch".localized
-        case InputTypeEnum.both.rawValue:
+        case InputTypeEnum.all.rawValue:
             return "All".localized
         default:
-            return String(describing: InputTypeEnum.both)
+            return String(describing: InputTypeEnum.all)
         }
     }
 
@@ -71,10 +71,10 @@ class InputTypeTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerV
             counter.save(inputTypeEnum: InputTypeEnum.volume)
         case InputTypeEnum.tap.rawValue:
             counter.save(inputTypeEnum: InputTypeEnum.tap)
-        case InputTypeEnum.both.rawValue:
-            counter.save(inputTypeEnum: InputTypeEnum.both)
+        case InputTypeEnum.all.rawValue:
+            counter.save(inputTypeEnum: InputTypeEnum.all)
         default:
-            counter.save(inputTypeEnum: InputTypeEnum.both)
+            counter.save(inputTypeEnum: InputTypeEnum.all)
         }
         //self.minimizeViewAnimatedIfNeeded()
     }

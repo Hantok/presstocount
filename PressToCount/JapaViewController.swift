@@ -31,7 +31,7 @@ class JapaViewController: UIViewController {
         settingsButton.image = UIImage(named: "settings")?.scaledTo(size: CGSize(width: 30, height: 30))
 
         //TODO: - need for App Store submit
-        counter.save(inputTypeEnum: .both)
+        counter.save(inputTypeEnum: .all)
 
         volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0.0, width: 0.0, height: 0.0))
         volumeView.showsRouteButton = false
@@ -51,13 +51,16 @@ class JapaViewController: UIViewController {
 
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        progressBar.setValue(0, animateWithDuration: 0)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         counter = Counter.getSavedCounter()
         progressBar.maxValue = CGFloat(counter.maxClickCount)
-        if counter.maxClickCount == counter.currentClickCount {
-            progressBar.setValue(0, animateWithDuration: 0.2)
-        } else {
+        if counter.maxClickCount != counter.currentClickCount {
             progressBar.setValue(CGFloat(counter.currentClickCount), animateWithDuration: 0.2)
         }
         rowsCount.text = "\(counter.currentRowsCount)"
@@ -181,10 +184,14 @@ class JapaViewController: UIViewController {
         case InputTypeEnum.tap:
             tapRecognizer.isEnabled = true
             deactivateVolumeButtons()
-        case InputTypeEnum.both:
+        case InputTypeEnum.all:
             tapRecognizer.isEnabled = true
             deactivateVolumeButtons()
             activateVolumeButtons()
+        case .swipe:
+            // TODO: add swipes
+            //swipeRecognizer.isEnabled = true
+            deactivateVolumeButtons()
         }
     }
 

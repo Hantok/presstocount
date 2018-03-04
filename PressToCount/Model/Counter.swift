@@ -21,7 +21,8 @@ extension String {
 enum InputTypeEnum: Int {
     case volume = 0
     case tap
-    case both
+    case swipe
+    case all
 }
 
 let kDefaultClickCount = 108
@@ -35,7 +36,7 @@ class Counter: NSObject, NSCoding {
 
     init(uClickCount: Int?, uInputType: InputTypeEnum?, curClickCount: Int?, curRowsCount: Int?) {
         maxClickCount = uClickCount ?? kDefaultClickCount
-        inputType = uInputType ?? InputTypeEnum.both
+        inputType = uInputType ?? InputTypeEnum.all
         if let clickCount = curClickCount {
             currentClickCount = clickCount
         } else {
@@ -46,7 +47,7 @@ class Counter: NSObject, NSCoding {
 
     override init() {
         maxClickCount = kDefaultClickCount
-        inputType = InputTypeEnum.both
+        inputType = InputTypeEnum.all
         currentClickCount = 0
         currentRowsCount = 0
     }
@@ -56,7 +57,7 @@ class Counter: NSObject, NSCoding {
     required convenience init(coder decoder: NSCoder) {
         self.init()
         maxClickCount = decoder.decodeInteger(forKey: "maxClickCount")
-        inputType = InputTypeEnum(rawValue: decoder.decodeInteger(forKey: "inputType")) ?? .both
+        inputType = InputTypeEnum(rawValue: decoder.decodeInteger(forKey: "inputType")) ?? .all
         currentClickCount = decoder.decodeInteger(forKey: "currentClickCount")
         currentRowsCount = decoder.decodeInteger(forKey: "currentRowsCount")
 
